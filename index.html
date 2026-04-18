@@ -42,16 +42,22 @@
                         gap: 10px;
                 }
 
-                .logo-icon {
-                        width: 45px;
-                        height: 45px;
-                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                        border-radius: 50%;
+                .logo-area {
                         display: flex;
                         align-items: center;
-                        justify-content: center;
-                        font-size: 1.5rem;
-                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                        gap: 10px;
+                }
+
+                .logo-img {
+                        width: 45px;
+                        height: 45px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        transition: transform 0.3s ease;
+                }
+
+                .logo-img:hover {
+                        transform: scale(1.05);
                 }
 
                 .logo-text {
@@ -59,6 +65,18 @@
                         font-weight: bold;
                         color: #667eea;
                 }
+
+                @media (max-width: 768px) {
+                        .logo-img {
+                                width: 35px;
+                                height: 35px;
+                        }
+
+                        .logo-text {
+                                font-size: 0.85rem;
+                        }
+                }
+
 
                 .nav-menu {
                         display: flex;
@@ -306,18 +324,18 @@
         <nav class="navbar">
                 <div class="nav-container">
                         <div class="logo-area">
-                                <div class="logo-icon">🕊️</div>
-                                <div class="logo-text">خدمات پناهندگان سرفراز</div>
+                                <img src="images/logo.png" alt="لوگو" <div class="logo-text">خدمات پناهندگان سرفراز
                         </div>
-                        <div class="menu-toggle">☰</div>
-                        <ul class="nav-menu">
-                                <li><a href="home.html">🏠 خانه</a></li>
-                                <li><a>📋 خدمات</a></li>
-                                <li><a>🤖 AI</a></li>
-                                <li><a>📞 تماس با ما</a></li>
-                                <li><a>❓ سوالات متداول</a></li>
-                                <li><a>📄 مستندات</a></li>
-                        </ul>
+                </div>
+                <div class="menu-toggle">☰</div>
+                <ul class="nav-menu">
+                        <li><a href="home.html"> <img src="images/home.png" alt="خانه"> خانه</a></li>
+                        <li><a> <img src="images/services.png" alt="خدمات"> خدمات</a></li>
+                        <li><a> <img src="images/ai.png" alt="AI"> AI</a></li>
+                        <li><a> <img src="images/contact.png" alt="تماس با ما"> تماس با ما</a></li>
+                        <li><a> <img src="images/faq.png" alt="سوالات متداول"> سوالات متداول</a></li>
+                        <li><a> <img src="images/documents.png" alt="مستندات"> 📄 مستندات</a></li>
+                </ul>
                 </div>
         </nav>
 
