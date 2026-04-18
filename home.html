@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarfraz Refugee Service | خدمات پناهندگان سرفراز</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: white;
+            padding: 0.8rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-text {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            min-height: 70vh;
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            border-right: 4px solid #764ba2;
+            padding-right: 15px;
+        }
+
+        h2 {
+            color: #764ba2;
+            margin: 1.5rem 0 0.8rem 0;
+            font-size: 1.4rem;
+        }
+
+        h3 {
+            color: #667eea;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        p {
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: transform 0.3s;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .card {
+            background: #f8f9ff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-right: 4px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box {
+            background: #e8ecff;
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+        }
+
+        ul {
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #1a1a2e;
+            color: #aaa;
+            margin-top: 2rem;
+            padding: 2rem 0 0 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p {
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo h3 {
+            color: white;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+
+        .social-link:hover {
+            color: #667eea;
+            transform: translateX(-5px);
+        }
+
+        .social-icon {
+            font-size: 1.2rem;
+            width: 30px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .container {
+                margin: 1rem;
+                padding: 1.2rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-logo {
+                justify-content: center;
+            }
+
+            .social-links {
+                align-items: center;
+            }
+
+            .social-link:hover {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-area">
+                <div class="logo-icon">🕊️</div>
+                <div class="logo-text">خدمات پناهندگان سرفراز</div>
+            </div>
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-menu">
+                <li><a href="home.html">🏠 خانه</a></li>
+                <li><a>📋 خدمات</a></li>
+                <li><a>🤖 AI</a></li>
+                <li><a>📞 تماس با ما</a></li>
+                <li><a>❓ سوالات متداول</a></li>
+                <li><a>📄 مستندات</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <div style="font-size: 4rem;">🕊️</div>
+            <h1>خدمات پناهندگان سرفراز</h1>
+            <p style="font-size: 1.1rem;">راهنمای جامع مهاجرت به آمریکا | گرین کارت | ویزای SIV | برنامه
+                USRAP</p>
+        </div>
+
+        <!-- بخش گرین کارت آمریکا -->
+        <h2>🟢 گرین کارت آمریکا (Green Card)</h2>
+        <div class="card">
+            <h3>📌 گرین کارت چیست؟</h3>
+            <p>گرین کارت یا کارت اقامت دائم ایالات متحده آمریکا، مجوزی است که به فرد اجازه می‌دهد به طور
+                قانونی و دائمی در آمریکا زندگی و کار کند. پس از ۵ سال اقامت دائم، می‌توانید برای شهروندی
+                آمریکا اقدام کنید.</p>
+
+            <h3>✨ راه‌های دریافت گرین کارت:</h3>
+            <ul>
+                <li><strong>از طریق خانواده:</strong> اگر همسر، والدین یا فرزند شهروند آمریکا یا دارنده
+                    گرین کارت دارید</li>
+                <li><strong>از طریق کار:</strong> ویزاهای کاری مانند H-1B، L-1، O-1 و سپس درخواست گرین
+                    کارت (EB-1, EB-2, EB-3)</li>
+                <li><strong>از طریق سرمایه‌گذاری:</strong> برنامه EB-5 با سرمایه‌گذاری حداقل $800,000
+                </li>
+                <li><strong>قرعه‌کشی گرین کارت (DV Lottery):</strong> برنامه تنوع ویزا - ثبت‌نام رایگان
+                    هر سال اکتبر تا نوامبر</li>
+                <li><strong>پناهندگی و پناهنده:</strong> پس از یک سال اقامت به عنوان پناهنده می‌توانید
+                    درخواست گرین کارت دهید</li>
+                <li><strong>برنامه USRAP و SIV:</strong> برای پناهندگان و همکاران نظامی</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>💰 هزینه تقریبی درخواست گرین کارت:</strong> $1,500 تا $3,000 (شامل هزینه‌های
+                دولتی و معاینه پزشکی)
+            </div>
+        </div>
+
+        <!-- بخش ویزای SIV -->
+        <h2>🛡️ ویزای SIV (ویزای ویژه مهاجرتی)</h2>
+        <div class="card">
+            <h3>📌 SIV چیست؟</h3>
+            <p>SIV یا Special Immigrant Visa یک برنامه ویژه برای افرادی است که در کشورهایی مثل عراق و
+                افغانستان برای دولت آمریکا کار کرده‌اند و به دلیل این همکاری در خطر هستند.</p>
+
+            <h3>✅ شرایط دریافت ویزای SIV:</h3>
+            <ul>
+                <li>حداقل ۲ سال سابقه کار مستقیم برای دولت آمریکا (به عنوان مترجم، همکار نظامی، کارمند
+                    سفارت)</li>
+                <li>دریافت نامه تأیید از کارفرمای آمریکایی (Letter of Recommendation)</li>
+                <li>اثبات وجود تهدید جدی به دلیل همکاری با آمریکا</li>
+                <li>گذراندن مراحل امنیتی و بررسی‌های دقیق</li>
+                <li>معاینه پزشکی و ارائه مدارک هویتی</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>⏱️ زمان تقریبی رسیدگی:</strong> ۱۲ تا ۲۴ ماه (گاهی بیشتر بسته به حجم پرونده‌ها)
+            </div>
+        </div>
+
+        <!-- بخش برنامه USRAP -->
+        <h2>🌍 برنامه USRAP (برنامه پذیرش پناهندگان آمریکا)</h2>
+        <div class="card">
+            <h3>📌 USRAP چیست؟</h3>
+            <p>USRAP یا United States Refugee Admissions Program برنامه رسمی دولت آمریکا برای پذیرش
+                پناهندگان از کشورهای مختلف است. این برنامه توسط USCIS و وزارت خارجه آمریکا مدیریت
+                می‌شود.</p>
+
+            <h3>✅ مراحل درخواست USRAP:</h3>
+            <ul>
+                <li><strong>ارجاع (Referral):</strong> توسط UNHCR، سازمان‌های بین‌المللی یا سفارت آمریکا
+                    معرفی شوید</li>
+                <li><strong>ثبت‌نام:</strong> تکمیل فرم‌های اولیه و ارائه مدارک هویتی</li>
+                <li><strong>بررسی امنیتی:</strong> بررسی‌های دقیق توسط FBI، DHS و سایر سازمان‌های امنیتی
+                </li>
+                <li><strong>مصاحبه:</strong> مصاحبه با افسر USCIS در کشور سوم</li>
+                <li><strong>معاینه پزشکی:</strong> انجام معاینات پزشکی در مراکز تأیید شده</li>
+                <li><strong>اخذ رأی (Adjudication):</strong> تصمیم نهایی درباره پرونده</li>
+                <li><strong>استقرار (Placement):</strong> هماهنگی برای سفر و استقرار در آمریکا</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>💰 هزینه‌ها:</strong> برخی هزینه‌ها مانند معاینه پزشکی و بلیط هواپیما ممکن است
+                توسط سازمان‌های بین‌المللی پوشش داده شود.
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="logo-icon" style="width: 50px; height: 50px; font-size: 1.8rem;">🕊️
+                    </div>
+                    <h3>خدمات پناهندگان سرفراز</h3>
+                </div>
+                <p>ارائه خدمات مشاوره مهاجرت به آمریکا<br>گرین کارت | ویزای SIV | برنامه USRAP</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>📞 تماس با ما</h4>
+                <p>📍 آدرس: لس آنجلس، کالیفرنیا، آمریکا<br>
+                    خیابان ویلشایر، برج ۳۵۰۰</p>
+                <p>📧 ایمیل: merlinsarfraz123@gmail.com<br>
+                    📧 پشتیبانی: merlinsarfraz123@gmail.com</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>📱 شبکه‌های اجتماعی</h4>
+                <div class="social-links">
+                    <a href="#" class="social-link" onclick="alert('واتساپ: +1 (555) 123-4567')">
+                        <span class="social-icon">📱</span> واتساپ
+                    </a>
+                    <a href="#" class="social-link" onclick="alert('فیسبوک: facebook.com/sarfrazrefugee')">
+                        <span class="social-icon">📘</span> فیسبوک
+                    </a>
+                    <a href="#" class="social-link" onclick="alert('تلگرام: t.me/sarfraz_refugee')">
+                        <span class="social-icon">✈️</span> تلگرام
+                    </a>
+                    <a href="#" class="social-link" onclick="alert('ایمیل: merlinsarfraz123@gmail.com')">
+                        <span class="social-icon">✉️</span> ایمیل
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 خدمات پناهندگ سرفراز - همه حقوق محفوظ است</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem;">این سایت اطلاعات عمومی ارائه می‌دهد و جایگزین
+                مشاوره حقوقی تخصصی است.</p>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+
+</body>
+
+</html>
