@@ -27,7 +27,6 @@
             margin: 0 auto;
         }
 
-        /* دکمه برگشت به خانه با آیکون تصویری */
         .home-btn-wrapper {
             margin-bottom: 24px;
         }
@@ -56,7 +55,6 @@
             border-color: #f97316;
         }
 
-        /* آیکون تصویری برگشت به خانه */
         .home-icon-img {
             width: 24px;
             height: 24px;
@@ -68,7 +66,6 @@
             filter: brightness(0) invert(1);
         }
 
-        /* کارت اصلی */
         .card {
             background: #ffffff;
             border-radius: 48px;
@@ -77,7 +74,6 @@
             border: 1px solid rgba(249, 115, 22, 0.1);
         }
 
-        /* هدر با لوگو (تصویری) */
         .brand-header {
             background: linear-gradient(115deg, #fef3e8 0%, #fff5ed 100%);
             padding: 32px 32px 28px;
@@ -92,7 +88,6 @@
             gap: 12px;
         }
 
-        /* لوگو به صورت دایره با تصویر */
         .logo-icon {
             width: 85px;
             height: 85px;
@@ -110,15 +105,7 @@
             transform: scale(1.02);
         }
 
-        /* تصویر لوگو */
         .logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* تصویر پیش‌فرض (اگر لینک تصویر نداشته باشیم) */
-        .default-logo-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -140,7 +127,6 @@
             font-weight: 500;
         }
 
-        /* بخش بار (پیشرفت درخواست) */
         .progress-bar-section {
             padding: 20px 28px 0 28px;
             background: white;
@@ -171,12 +157,10 @@
             display: none;
         }
 
-        /* محتوا */
         .content {
             padding: 28px 32px 32px;
         }
 
-        /* دکمه‌های زبان */
         .lang-row {
             display: flex;
             gap: 16px;
@@ -211,7 +195,6 @@
             transform: translateY(-1px);
         }
 
-        /* ورودی */
         .input-group {
             margin-bottom: 24px;
         }
@@ -236,7 +219,6 @@
             box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
         }
 
-        /* دکمه ارسال */
         .send-btn {
             background: linear-gradient(100deg, #f97316, #ea580c);
             width: 100%;
@@ -266,7 +248,6 @@
             transform: none;
         }
 
-        /* باکس پاسخ */
         .result-box {
             margin-top: 28px;
             background: #f8fafd;
@@ -289,7 +270,6 @@
             border-right: 4px solid #ef4444;
         }
 
-        /* فوتر */
         .footer {
             border-top: 1px solid #eef2f8;
             padding: 20px 32px 28px;
@@ -337,22 +317,18 @@
 <body>
 
     <div class="container">
-        <!-- دکمه برگشت به خانه با آیکون تصویری -->
         <div class="home-btn-wrapper">
             <a href="#" class="home-btn" onclick="window.location.href='/'; return false;">
-                <!-- آیکون تصویری برگشت به خانه (لینک تصویر نمونه) -->
-                <img src="ai.png" alt="خانه" class="home-icon-img"
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="خانه" class="home-icon-img"
                     onerror="this.src='https://cdn-icons-png.flaticon.com/512/25/25694.png'">
                 برگشت به خانه
             </a>
         </div>
 
         <div class="card">
-            <!-- هدر با لوگو (تصویری) -->
             <div class="brand-header">
                 <div class="logo-area">
                     <div class="logo-icon">
-                        <!-- لوگو تصویری (لینک تصویر نمونه - قابل تعویض) -->
                         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Sarfraz Logo"
                             class="logo-img"
                             onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'">
@@ -362,7 +338,6 @@
                 </div>
             </div>
 
-            <!-- بخش بار (پیشرفت) -->
             <div class="progress-bar-section">
                 <div class="progress-container" id="progressContainer">
                     <div class="progress-fill" id="progressFill"></div>
@@ -371,24 +346,20 @@
             </div>
 
             <div class="content">
-                <!-- دکمه‌های انتخاب زبان -->
                 <div class="lang-row">
                     <button class="lang-btn active" data-lang="dari">🇦🇫 دری (Dari)</button>
                     <button class="lang-btn" data-lang="english">🇺🇸 English</button>
                 </div>
 
-                <!-- ورودی سوال -->
                 <div class="input-group">
                     <textarea id="prompt" rows="3"
                         placeholder="سوال خود را اینجا بنویسید... / Type your question here..."></textarea>
                 </div>
 
-                <!-- دکمه ارسال -->
                 <button class="send-btn" onclick="sendMessage()">
                     ✨ ارسال سوال / Send
                 </button>
 
-                <!-- باکس نمایش پاسخ -->
                 <div id="response" class="result-box"></div>
             </div>
 
@@ -400,19 +371,17 @@
 
     <script>
         // ========================
-        // کلید و مدل Groq
+        // توکن مستقیماً در کد (برای کار مستقیم بدون ورودی کاربر)
         // ========================
         const API_KEY = "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";
         const MODEL = "llama-3.3-70b-versatile";
 
         let currentLanguage = "dari";
 
-        // المنت‌های بار (progress)
         const progressContainer = document.getElementById('progressContainer');
         const progressFill = document.getElementById('progressFill');
         const progressText = document.getElementById('progressText');
 
-        // نمایش بار
         function showProgress(show, step = 0) {
             if (show) {
                 progressContainer.style.display = 'block';
@@ -425,14 +394,12 @@
             }
         }
 
-        // مدیریت تغییر زبان
         const langBtns = document.querySelectorAll('.lang-btn');
         langBtns.forEach(btn => {
             btn.addEventListener('click', function () {
                 langBtns.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 currentLanguage = this.getAttribute('data-lang');
-
                 const responseDiv = document.getElementById('response');
                 if (currentLanguage === 'dari') {
                     responseDiv.innerHTML = '🔄 به زبان دری تغییر کرد. سوال خود را بپرسید.';
@@ -443,7 +410,6 @@
             });
         });
 
-        // سیستم پرامپت (با حذف کامل "چنایی" و کلمات تکراری)
         function getSystemPrompt(lang) {
             if (lang === 'dari') {
                 return `تو یک دستیار حرفه‌ای و مهربان به نام Sarfraz AI هستی که برای "Sarfraz Refugee Service" کار می‌کنی.
@@ -468,10 +434,8 @@ Important rules you must follow:
             }
         }
 
-        // پاکسازی کامل پاسخ از کلمات "چنایی" و موارد تکراری
         function cleanAnswer(text, lang) {
             let cleaned = text;
-
             if (lang === 'dari') {
                 cleaned = cleaned.replace(/خوبی جان/gi, '');
                 cleaned = cleaned.replace(/چنایی/gi, '');
@@ -486,22 +450,15 @@ Important rules you must follow:
             } else {
                 cleaned = cleaned.replace(/\b(hey|dude|bro|awesome|no worries|you know|like I said|well|so|actually|just|basically)\b/gi, '');
             }
-
-            // حذف فاصله‌های اضافی
             cleaned = cleaned.replace(/\s+/g, ' ').trim();
             return cleaned;
         }
 
-        // تشخیص زبان سوال کاربر
         function detectLanguage(text) {
             const persianRegex = /[\u0600-\u06FF]/;
-            if (persianRegex.test(text)) {
-                return "dari";
-            }
-            return "english";
+            return persianRegex.test(text) ? "dari" : "english";
         }
 
-        // ارسال پیام
         async function sendMessage() {
             const promptElem = document.getElementById('prompt');
             const responseDiv = document.getElementById('response');
@@ -523,13 +480,11 @@ Important rules you must follow:
                 showLangNotice = true;
             }
 
-            // پاک کردن فیلد ورودی
             promptElem.value = '';
 
             sendBtn.disabled = true;
             sendBtn.innerHTML = "🕊️ در حال دریافت پاسخ...";
 
-            // نمایش نوار پیشرفت
             showProgress(true, 10);
             setTimeout(() => showProgress(true, 30), 100);
             setTimeout(() => showProgress(true, 60), 300);
@@ -562,14 +517,12 @@ Important rules you must follow:
 
                 if (!resp.ok) {
                     let errorDetail = data.error?.message || `خطا ${resp.status}`;
-                    if (resp.status === 401) errorDetail = "❌ کلید API معتبر نیست. / API key is invalid.";
-                    if (resp.status === 429) errorDetail = "⏳ محدودیت درخواست. کمی صبر کنید. / Rate limit. Please wait.";
+                    if (resp.status === 401) errorDetail = "❌ کلید API معتبر نیست.";
+                    if (resp.status === 429) errorDetail = "⏳ محدودیت درخواست. کمی صبر کنید.";
                     throw new Error(errorDetail);
                 }
 
-                let rawAnswer = data.choices[0]?.message?.content || "پاسخی دریافت نشد. / No response received.";
-
-                // پاکسازی کامل پاسخ از "چنایی" و کلمات تکراری
+                let rawAnswer = data.choices[0]?.message?.content || "پاسخی دریافت نشد.";
                 let finalAnswer = cleanAnswer(rawAnswer, responseLanguage);
 
                 if (showLangNotice) {
@@ -582,7 +535,7 @@ Important rules you must follow:
             catch (err) {
                 console.error(err);
                 showProgress(false);
-                responseDiv.innerHTML = `❌ خطا / Error: ${err.message}`;
+                responseDiv.innerHTML = `❌ خطا: ${err.message}`;
                 responseDiv.classList.add('error');
             }
             finally {
@@ -591,7 +544,6 @@ Important rules you must follow:
             }
         }
 
-        // ارسال با کلید Enter
         document.getElementById('prompt').addEventListener('keydown', function (e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
