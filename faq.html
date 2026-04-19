@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>سوالات متداول | راهنمای مهاجرتی SIV - اسپانسرشیپ - USRAP</title>
+    <!-- Font Awesome 6 (آیکون‌های حرفه‌ای) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- گوگل فونت Inter برای ظاهر مدرن -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2f8 100%);
+            color: #0f172a;
+            line-height: 1.55;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* ===== هدر با لوگو (تصویر ثابت) و دکمه خانه ===== */
+        .faq-header {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 1rem 1.8rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            background: #ffffff;
+            padding: 6px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .logo-text {
+            font-weight: 500;
+            color: #1e293b;
+            font-size: 0.9rem;
+            background: #f1f5f9;
+            padding: 5px 12px;
+            border-radius: 40px;
+            color: #1e40af;
+        }
+
+        .btn-home {
+            background: #1e293b;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.25s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-home i {
+            font-size: 1rem;
+        }
+
+        .btn-home:hover {
+            background: #0f172a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+        }
+
+        /* عنوان صفحه */
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e293b, #2c3e66);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+
+        .page-title p {
+            color: #475569;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== بخش‌بندی سوالات ===== */
+        .section-card {
+            background: white;
+            border-radius: 1.8rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem 1.8rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s;
+            border: 1px solid #e9edf2;
+        }
+
+        .section-title {
+            font-size: 1.55rem;
+            font-weight: 700;
+            border-right: 5px solid #3b82f6;
+            padding-right: 1rem;
+            margin-bottom: 1.5rem;
+            color: #0c4a6e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: #3b82f6;
+            font-size: 1.6rem;
+        }
+
+        /* آیتم سوال و جواب */
+        .faq-item {
+            border-bottom: 1px solid #eef2ff;
+            padding: 1rem 0.2rem;
+            transition: background 0.2s;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #0f172a;
+            padding: 0.25rem 0;
+        }
+
+        .faq-question i {
+            font-size: 1.2rem;
+            color: #3b82f6;
+            width: 24px;
+            transition: transform 0.2s;
+        }
+
+        .faq-question .q-text {
+            flex: 1;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease-out, padding 0.2s;
+            padding-right: 2.2rem;
+            color: #334155;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            background-color: #fafcff;
+            border-radius: 16px;
+            margin-top: 0;
+        }
+
+        .faq-answer.show {
+            max-height: 350px;
+            padding: 0.8rem 1.2rem 0.8rem 0.8rem;
+            margin-top: 0.5rem;
+            border-right: 2px solid #b9d0f8;
+        }
+
+        .faq-answer p {
+            margin: 0;
+        }
+
+        /* فوتر */
+        .footer-note {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #5b6e8c;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 640px) {
+            .faq-header {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .logo-area {
+                justify-content: center;
+            }
+
+            .btn-home {
+                justify-content: center;
+            }
+
+            .section-card {
+                padding: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .faq-question {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- هدر با لوگو (تصویر ثابت) و دکمه خانه -->
+        <div class="faq-header">
+            <div class="logo-area">
+                <!-- لوگوی ثابت: آدرس تصویر خود را در src قرار دهید -->
+                <img id="staticLogo" class="logo-img" src="images/logo.png" alt="لوگو سازمان">
+                <span class="logo-text"><i class="fas fa-shield-alt"></i> مرکز راهنمایی</span>
+            </div>
+            <a href="index.html" id="homeButton" class="btn-home">
+                <i class="fas fa-home"></i> برگشت به خانه
+            </a>
+        </div>
+
+        <!-- عنوان اصلی -->
+        <div class="page-title">
+            <h1><i class="fas fa-question-circle" style="color:#3b82f6;"></i> پرسش‌های متداول</h1>
+
+        </div>
+
+        <!-- بخش اول: وضعیت متقاضیان ویزای خاص (SIV) -->
+        <div class="section-card">
+            <div class="section-title">
+                <i class="fas fa-passport"></i>
+                <span>بخش اول: وضعیت متقاضیان ویزای خاص (SIV)</span>
+            </div>
+            <div class="faq-list" id="siv-faqs"></div>
+        </div>
+
+        <!-- بخش دوم: وضعیت متقاضیان اسپانسرشیپ ایالات متحده -->
+        <div class="section-card">
+            <div class="section-title">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span>بخش دوم: وضعیت متقاضیان اسپانسرشیپ ایالات متحده</span>
+            </div>
+            <div class="faq-list" id="sponsor-faqs"></div>
+        </div>
+
+        <!-- بخش سوم: وضعیت برنامه USRAP (جدید) -->
+        <div class="section-card">
+            <div class="section-title">
+                <i class="fas fa-globe-americas"></i>
+                <span>بخش سوم: وضعیت برنامه USRAP</span>
+            </div>
+            <div class="faq-list" id="usrap-faqs"></div>
+        </div>
+
+        <div class="footer-note">
+            <i class="fas fa-info-circle"></i> اطلاعات بر اساس آخرین به‌روزرسانی‌های رسمی تنظیم شده است.
+        </div>
+    </div>
+
+    <script>
+        // ========== دیتای سوالات (بخش اول، دوم و سوم جدید) ==========
+        const faqData = {
+            siv: [
+                { q: "آیا برنامه SIV آغاز شده است؟", a: "طبق اعلام وزارت امور خارجه ایالات متحده، این برنامه بر اساس تخصیص سال مالی ۲۰۲۴ همچنان در حال اجرا می‌باشد." },
+                { q: "آیا روند دریافت COM جریان دارد؟", a: "بلی، روند دریافت تأییدیه مأموریت (COM) برای متقاضیان SIV ادامه دارد." },
+                { q: "آیا روند صدور ویزا برای متقاضیان SIV آغاز شده است؟", a: "در حال حاضر، بر اساس سیاست‌های جدید ایالات متحده، صدور ویزا برای برخی از متقاضیان SIV با محدودیت یا توقف مواجه است." },
+                { q: "آیا رفتن به مصاحبه در کشور ثالث مفاد دارد؟", a: "در شرایط فعلی، رفتن به مصاحبه ممکن است نتیجه قطعی در پی نداشته باشد و در برخی موارد به رد درخواست منجر گردد." },
+                { q: "فرمان F-212 چیست؟", a: "فرمان F-212 به محدودیت‌های مرتبط با ورود و سفر اشاره دارد که در چارچوب سیاست‌های مهاجرتی دولت دونالد ترامپ وضع گردیده است و شامل برخی کشورها از جمله افغانستان می‌شود." },
+                { q: "آیا با داشتن ویزای آمریکا می‌توان به این کشور سفر کرد؟", a: "بلی، در صورت داشتن ویزای معتبر و عدم شمول در محدودیت‌های خاص، امکان سفر به ایالات متحده وجود دارد." },
+                { q: "ممنوعیت سفر (Travel Ban) چیست؟", a: "ممنوعیت سفر، سیاستی است که بر اساس آن، ورود اتباع برخی کشورها به ایالات متحده محدود یا متوقف می‌گردد." }
+            ],
+            sponsor: [
+                { q: "آیا روند مصاحبه برای متقاضیان اسپانسرشیپ (گرین کارت) جریان دارد؟", a: "بلی، روند مصاحبه در برخی موارد ادامه دارد، اما صدور ویزا با محدودیت مواجه است." },
+                { q: "آیا رفتن به مصاحبه مفاد دارد؟", a: "در شرایط فعلی، رفتن به مصاحبه تضمینی برای دریافت ویزا ایجاد نمی‌کند و باید با احتیاط تصمیم‌گیری شود." },
+                { q: "آیا متقاضیان اسپانسرشیپ توسط گرین کارت می‌توانند ویزا دریافت کنند؟", a: "در حال حاضر، به دلیل برخی محدودیت‌های مهاجرتی، دریافت ویزا برای این دسته از متقاضیان با چالش مواجه است." },
+                { q: "آیا امکان به تعویق انداختن مصاحبه وجود دارد؟", a: "بلی، در بسیاری از موارد متقاضیان می‌توانند درخواست تعویق مصاحبه خود را ارائه دهند." },
+                { q: "آیا متقاضیان اسپانسرشیپ تحت ممنوعیت سفر قرار دارند؟", a: "برخی از متقاضیان ممکن است مشمول محدودیت‌های سفر باشند، بسته به شرایط و سیاست‌های جاری." },
+                { q: "آیا متقاضیان اسپانسرشیپ توسط شهروندان آمریکایی نیز شامل این محدودیت‌ها می‌شوند؟", a: "در برخی موارد، این محدودیت‌ها می‌تواند بر روند صدور ویزا تأثیر بگذارد." },
+                { q: "آیا دریافت ویزا برای این دسته مسدود است؟", a: "صدور ویزا در برخی پرونده‌ها با تأخیر یا محدودیت مواجه می‌باشد." }
+            ],
+            usrap: [
+                { q: "آیا برنامه USRAP برای متقاضیان P1 و P2 آغاز شده است؟", a: "در حال حاضر، این برنامه در وضعیت تعلیق قرار دارد." },
+                { q: "آیا امکان شامل شدن متقاضیان P1 و P2 در سال ۲۰۲۷ وجود دارد؟", a: "این موضوع در حد احتمال مطرح است و به تصمیمات آینده دولت ایالات متحده بستگی دارد." },
+                { q: "در سال ۲۰۲۶ چه کسانی می‌توانند از طریق USRAP به ایالات متحده سفر کنند؟", a: "اولویت‌بندی پذیرش پناهندگان بر اساس سیاست‌های جاری تعیین می‌شود و ممکن است شامل گروه‌های خاصی گردد." },
+                { q: "میزان تخصیص سال ۲۰۲۶ برای برنامه USRAP چقدر است؟", a: "بر اساس اطلاعات موجود، ظرفیت پذیرش برای سال ۲۰۲۶ حدود ۷۵۰۰ نفر در نظر گرفته شده است." }
+            ]
+        };
+
+        // تابع برای رندر کردن سوالات در یک container مشخص
+        function renderFaqs(containerId, items) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            container.innerHTML = '';
+            items.forEach((item) => {
+                const faqDiv = document.createElement('div');
+                faqDiv.className = 'faq-item';
+
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'faq-question';
+                const icon = document.createElement('i');
+                icon.className = 'fas fa-chevron-down';
+                const qTextSpan = document.createElement('span');
+                qTextSpan.className = 'q-text';
+                qTextSpan.innerText = item.q;
+                questionDiv.appendChild(icon);
+                questionDiv.appendChild(qTextSpan);
+
+                const answerDiv = document.createElement('div');
+                answerDiv.className = 'faq-answer';
+                const p = document.createElement('p');
+                p.innerText = item.a;
+                answerDiv.appendChild(p);
+
+                faqDiv.appendChild(questionDiv);
+                faqDiv.appendChild(answerDiv);
+
+                // رویداد کلیک برای باز و بسته شدن
+                questionDiv.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isOpen = answerDiv.classList.contains('show');
+                    if (isOpen) {
+                        answerDiv.classList.remove('show');
+                        icon.className = 'fas fa-chevron-down';
+                    } else {
+                        answerDiv.classList.add('show');
+                        icon.className = 'fas fa-chevron-up';
+                    }
+                });
+
+                container.appendChild(faqDiv);
+            });
+        }
+
+        // رندر هر سه بخش
+        renderFaqs('siv-faqs', faqData.siv);
+        renderFaqs('sponsor-faqs', faqData.sponsor);
+        renderFaqs('usrap-faqs', faqData.usrap);
+
+        // ========== لوگو: فقط تصویر ثابت (هیچ آپلودی وجود ندارد) ==========
+        // شما می‌توانید آدرس لوگوی خود را مستقیماً در img با id="staticLogo" تغییر دهید
+        const logoImg = document.getElementById('staticLogo');
+        // اگر می‌خواهید لوگو از یک آدرس دیگر بارگذاری شود، این خط را تغییر دهید:
+        // logoImg.src = "images/my-logo.png";
+        // در حال حاضر همان placeholder است. برای جایگزینی با لوگوی خود، کافیست در تگ img مقدار src را اصلاح کنید.
+
+        // ========== دکمه برگشت به خانه: لینک را خودتان تنظیم کنید ==========
+        const homeBtn = document.getElementById('homeButton');
+        // ** لطفاً لینک دلخواه خود را در اینجا قرار دهید **
+        // مثال: const yourCustomHomeLink = "https://example.com";   یا "/index.html"
+        const yourCustomHomeLink = "/";   // <---- لینک خانه را اینجا تغییر دهید (مثلا "https://mywebsite.com")
+
+        homeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (yourCustomHomeLink && yourCustomHomeLink !== "#") {
+                window.location.href = yourCustomHomeLink;
+            } else {
+                alert("لطفاً لینک برگشت به خانه را در متغیر yourCustomHomeLink تنظیم کنید.");
+            }
+        });
+
+        // همچنین برای راحتی می‌توانید مستقیماً در تگ <a> هم href را ست کنید، ولی این روش انعطاف بیشتری دارد.
+    </script>
+</body>
+
+</html>
