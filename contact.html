@@ -420,67 +420,53 @@
                 </div>
 
                 <!-- شبکه‌های اجتماعی -->
-                <div class="social-icons">
-                    <a href="#" target="_blank">
-                        <img src="images/facebook.png" alt="فیسبوک"
-                            onerror="this.src='https://www.facebook.com/61576472791614/posts/122107016840882426/?substory_index=1424441356382564&app=fbl'">
-                    </a>
 
-                    <a href="#" target="_blank">
-                        <img src="images/instagram.png" alt="اینستاگرام"
-                            onerror="this.src='https://www.instagram.com/sarfraz_refugee_service?igsh=MXRvMG55cjRieGhucg=='">
-                    </a>
-                    <a href="#" target="_blank">
-                        <img src="images/telegram.png" alt="تلگرام" onerror="this.src='https://t.me/visaguidee'">
-                    </a>
-                </div>
+
+                <form id="contactForm" class="contact-form">
+                    <input type="text" id="name" name="name" placeholder="نام و نام خانوادگی" required>
+                    <input type="email" id="email" name="email" placeholder="ایمیل" required>
+                    <input type="tel" id="phone" name="phone" placeholder="شماره تماس (اختیاری)">
+                    <textarea id="message" name="message" rows="4" placeholder="پیام شما..." required></textarea>
+                    <button type="submit"> ارسال پیام</button>
+                    <div id="formStatus" class="form-status"></div>
+                </form>
             </div>
-
-            <form id="contactForm" class="contact-form">
-                <input type="text" id="name" name="name" placeholder="نام و نام خانوادگی" required>
-                <input type="email" id="email" name="email" placeholder="ایمیل" required>
-                <input type="tel" id="phone" name="phone" placeholder="شماره تماس (اختیاری)">
-                <textarea id="message" name="message" rows="4" placeholder="پیام شما..." required></textarea>
-                <button type="submit"> ارسال پیام</button>
-                <div id="formStatus" class="form-status"></div>
-            </form>
         </div>
-    </div>
 
-    <script>
-        const form = document.getElementById('contactForm');
-        const formStatus = document.getElementById('formStatus');
+        <script>
+            const form = document.getElementById('contactForm');
+            const formStatus = document.getElementById('formStatus');
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            formStatus.textContent = '⏳ در حال ارسال...';
-            formStatus.style.color = '#0a5c8e';
-            formStatus.style.background = '#e3f2fd';
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                formStatus.textContent = '⏳ در حال ارسال...';
+                formStatus.style.color = '#0a5c8e';
+                formStatus.style.background = '#e3f2fd';
 
-            const formData = new FormData(form);
-            try {
-                const response = await fetch('https://formspree.io/f/xjgjvokv', {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    formStatus.textContent = '✅ پیام شما با موفقیت ارسال شد! به زودی با شما تماس می‌گیریم.';
-                    formStatus.style.color = '#155724';
-                    formStatus.style.background = '#d4edda';
-                    form.reset();
-                } else {
-                    formStatus.textContent = '❌ خطا در ارسال. لطفاً دوباره تلاش کنید.';
+                const formData = new FormData(form);
+                try {
+                    const response = await fetch('https://formspree.io/f/xjgjvokv', {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        formStatus.textContent = '✅ پیام شما با موفقیت ارسال شد! به زودی با شما تماس می‌گیریم.';
+                        formStatus.style.color = '#155724';
+                        formStatus.style.background = '#d4edda';
+                        form.reset();
+                    } else {
+                        formStatus.textContent = '❌ خطا در ارسال. لطفاً دوباره تلاش کنید.';
+                        formStatus.style.color = '#721c24';
+                        formStatus.style.background = '#f8d7da';
+                    }
+                } catch (error) {
+                    formStatus.textContent = '❌ خطای شبکه. اتصال اینترنت خود را بررسی کنید.';
                     formStatus.style.color = '#721c24';
                     formStatus.style.background = '#f8d7da';
                 }
-            } catch (error) {
-                formStatus.textContent = '❌ خطای شبکه. اتصال اینترنت خود را بررسی کنید.';
-                formStatus.style.color = '#721c24';
-                formStatus.style.background = '#f8d7da';
-            }
-        });
-    </script>
+            });
+        </script>
 
 </body>
 
