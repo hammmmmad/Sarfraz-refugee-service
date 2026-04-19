@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>مستندات مهاجرتی | منابع معتبر و به‌روز</title>
+    <!-- Font Awesome 6 (آیکون‌های حرفه‌ای) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- گوگل فونت Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f3ef 0%, #e8e6e1 100%);
+            color: #1e1b1b;
+            line-height: 1.55;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ===== هدر با لوگو و دکمه خانه ===== */
+        .docs-header {
+            background: rgba(255, 255, 245, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 1rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 240, 0.8);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            padding: 8px;
+
+        }
+
+        .logo-text {
+            font-weight: 500;
+            color: #2d3e50;
+            font-size: 0.9rem;
+            background: #f1f5f9;
+            padding: 6px 16px;
+            border-radius: 40px;
+            color: #1e4a76;
+        }
+
+        .btn-home {
+            background: #2c3e2f;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.25s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-home i {
+            font-size: 1rem;
+        }
+
+        .btn-home:hover {
+            background: #1e2a21;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        /* بخش اصلی مستندات */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero-section h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2c3e2f, #4a6a3b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -0.3px;
+        }
+
+        .hero-section .coming-badge {
+            display: inline-block;
+            background: #e9c46a;
+            color: #2d3e2f;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* کارت اطلاعیه */
+        .info-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f0e6d2;
+            margin-bottom: 2.5rem;
+            transition: transform 0.2s;
+        }
+
+        .info-card:hover {
+            transform: scale(1.01);
+        }
+
+        .info-card p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #2c3e2f;
+            text-align: justify;
+        }
+
+        .info-card i {
+            color: #b8860b;
+            margin-left: 8px;
+        }
+
+        /* ویژگی‌های آتی (تیمچه آیتم‌های مستندات) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 245, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 1.5rem;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 1px solid #e2dccd;
+            transition: all 0.25s;
+        }
+
+        .feature-item i {
+            font-size: 2.2rem;
+            color: #6b8c42;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2c3e2f;
+        }
+
+        .feature-item p {
+            font-size: 0.85rem;
+            color: #5a6e4a;
+        }
+
+        /* فوتر */
+        .footer-note {
+            text-align: center;
+            margin-top: 2.8rem;
+            font-size: 0.8rem;
+            color: #6f6a5c;
+            border-top: 1px solid #e2dccd;
+            padding-top: 1.8rem;
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 640px) {
+            .docs-header {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .logo-area {
+                justify-content: center;
+            }
+
+            .btn-home {
+                justify-content: center;
+            }
+
+            .hero-section h1 {
+                font-size: 1.7rem;
+            }
+
+            .info-card {
+                padding: 1.5rem;
+            }
+
+            .info-card p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- هدر با لوگو (تصویر ثابت از آدرس شما) و دکمه خانه -->
+        <div class="docs-header">
+            <div class="logo-area">
+                <!-- لوگو: آدرس تصویر خود را در src قرار دهید -->
+                <img id="docsLogo" class="logo-img" src="images/logo.png" alt="لوگو مستندات">
+                <span class="logo-text"><i class="fas fa-folder-open"></i> مرکز مستندات مهاجرتی</span>
+            </div>
+            <a href="index.html" id="homeButton" class="btn-home">
+                <i class="fas fa-home"></i> برگشت به خانه
+            </a>
+        </div>
+
+        <!-- بخش اصلی -->
+        <div class="hero-section">
+            <div class="coming-badge">
+                <i class="fas fa-clock"></i> به‌زودی
+            </div>
+            <h1><i class="fas fa-file-alt"></i> مستندات تخصصی مهاجرت</h1>
+        </div>
+
+        <!-- متن اطلاعیه اصلی (دقیقاً مطابق خواسته) -->
+        <div class="info-card">
+            <p>
+                <i class="fas fa-quote-right"></i>
+                به‌زودی مجموعه‌ای از مستندات، تحلیل‌ها و اطلاعات دقیق و به‌روز در زمینه مهاجرت از تمامی مسیرها، به‌ویژه
+                ایالات متحده امریکا، در این وب‌سایت در اختیار شما قرار خواهد گرفت. هدف ما فراهم‌سازی محتوای معتبر، قابل
+                اعتماد و کاربردی است تا شما بتوانید با آگاهی کامل، بهترین تصمیم را برای آینده خود بگیرید.
+                <br><br>
+                با ما همراه باشید تا گام‌به‌گام شما را در مسیر مهاجرت راهنمایی کنیم.
+            </p>
+        </div>
+
+        <!-- بخش پیش‌نمایش نوع مستندات (اختیاری اما کاربردی) -->
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>تحلیل‌های آماری</h3>
+                <p>نمودارها و آمار به‌روز مهاجرت، ظرفیت‌ها و روند پذیرش</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-gavel"></i>
+                <h3>مستندات قانونی</h3>
+                <p>مرور قوانین مهاجرتی، فرمان‌ها و مصوبات جدید ایالات متحده</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>راهنماهای تحصیلی</h3>
+                <p>بورسیه‌ها، شرایط دانشگاه‌ها و مدارک مورد نیاز</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-briefcase"></i>
+                <h3>مسیرهای شغلی</h3>
+                <p>ویزای کار، اسپانسرشیپ و فرصت‌های شغلی بین‌المللی</p>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <i class="fas fa-database"></i> تمامی محتوا با استناد به منابع رسمی تهیه خواهد شد.
+        </div>
+    </div>
+
+    <script>
+        // ========== دکمه برگشت به خانه (تنظیم لینک توسط شما) ==========
+        const homeBtn = document.getElementById('homeButton');
+        // *** لینک دلخواه خود را در این متغیر قرار دهید ***
+        const yourCustomHomeLink = "/";   // <--- اینجا تغییر دهید (مثلاً "https://example.com" یا "index.html")
+
+        homeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (yourCustomHomeLink && yourCustomHomeLink !== "#") {
+                window.location.href = yourCustomHomeLink;
+            } else {
+                alert("لطفاً لینک برگشت به خانه را در متغیر yourCustomHomeLink تنظیم کنید.");
+            }
+        });
+
+        // لوگو: هیچ آپلودی وجود ندارد. فقط یک تصویر ثابت است.
+        // برای تغییر لوگو، کافی است در تگ img با id="docsLogo" مقدار src را به آدرس تصویر خود تغییر دهید.
+        const logoImg = document.getElementById('docsLogo');
+        // اگر می‌خواهید از آدرس دلخواه استفاده کنید، خط زیر را از حالت توضیح خارج کنید و مسیر را بنویسید:
+        // logoImg.src = "images/my-logo.png";
+        // در حال حاضر همان placeholder است.
+    </script>
+</body>
+
+</html>
