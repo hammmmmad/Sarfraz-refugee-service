@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماس با ما | Sarfraz Refugee Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            color: #1e2a3e;
+            direction: rtl;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            margin: auto;
+        }
+
+        /* دکمه برگشت به خانه */
+        .back-home {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 100;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: #1e88e5;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .back-btn i {
+            font-size: 1rem;
+        }
+
+        .back-btn:hover {
+            background: #1e88e5;
+            color: white;
+            transform: translateX(-5px);
+            box-shadow: 0 8px 25px rgba(30, 136, 229, 0.2);
+        }
+
+        /* لوگو */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 15px 30px;
+            border-radius: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: linear-gradient(135deg, #1e88e5, #0a5c8e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            text-align: right;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: #0a5c8e;
+            margin-bottom: 5px;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        /* عنوان صفحه */
+        .page-title {
+            text-align: center;
+            margin: 30px 0 40px;
+        }
+
+        .page-title h2 {
+            font-size: 2rem;
+            color: #0a5c8e;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title h2:after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: #1e88e5;
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* فرم تماس */
+        .contact-wrapper {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info {
+            flex: 1;
+            background: linear-gradient(145deg, #0a5c8e, #1e88e5);
+            padding: 40px 30px;
+            color: white;
+        }
+
+        .contact-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .contact-item {
+            margin: 22px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: 0.3s;
+        }
+
+        .contact-icon img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-text a {
+            color: white;
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .contact-text a:hover {
+            text-decoration: underline;
+            opacity: 0.85;
+            transform: translateX(-3px);
+        }
+
+        .contact-text p {
+            color: white;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            background: rgba(255, 255, 255, 0.15);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .social-icons a img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .social-icons a:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .social-icons a:hover img {
+            filter: none;
+        }
+
+        .contact-form {
+            flex: 1.5;
+            padding: 40px 35px;
+            background: white;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            margin-bottom: 18px;
+            border: 1px solid #e0e0e0;
+            border-radius: 14px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: #f9fafb;
+            color: #1e2a3e;
+            transition: 0.2s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #1e88e5;
+            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
+            background: white;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #aaa;
+        }
+
+        .contact-form button {
+            background: linear-gradient(135deg, #1e88e5, #0a5c8e);
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
+        }
+
+        .form-status {
+            margin-top: 18px;
+            text-align: center;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                flex-direction: column;
+            }
+
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-text {
+                text-align: center;
+            }
+
+            .back-home {
+                top: 15px;
+                right: 15px;
+            }
+
+            .back-btn {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+
+            .contact-item {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- دکمه برگشت به خانه -->
+    <div class="back-home">
+        <a href="home.html" class="back-btn">
+            <i class="fas fa-arrow-right"></i>
+            بازگشت به خانه
+        </a>
+    </div>
+
+    <div class="container">
+        <!-- لوگو -->
+        <div class="logo-section">
+            <div class="logo">
+                <div class="logo-img">
+                    <img src="images/logo.png" alt="لوگو" onerror="this.src='https://via.placeholder.com/55?text=🇺🇸'">
+                </div>
+                <div class="logo-text">
+                    <h1>Sarfraz Refugee Service</h1>
+                    <p>خدمات مهاجرت و ویزای بشردوستانه</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- عنوان صفحه -->
+        <div class="page-title">
+            <h2>📞 تماس با ما</h2>
+        </div>
+
+        <!-- فرم تماس -->
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>اطلاعات تماس</h3>
+
+                <!-- تلفن -->
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <img src="images/icon-phone.png" alt="تلفن"
+                            onerror="this.src='https://via.placeholder.com/24?text=📞'">
+                    </div>
+                    <div class="contact-text">
+                        <a href="tel:+1234567890">+1 234 567 890</a>
+                    </div>
+                </div>
+
+                <!-- ایمیل -->
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <img src="images/icon-email.png" alt="ایمیل"
+                            onerror="this.src='https://via.placeholder.com/24?text=✉️'">
+                    </div>
+                    <div class="contact-text">
+                        <a href="mailto:info@sarfrazrefugee.com">info@sarfrazrefugee.com</a>
+                    </div>
+                </div>
+
+                <!-- آدرس (لینک به گوگل مپ) -->
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <img src="images/icon-location.png" alt="آدرس"
+                            onerror="this.src='https://via.placeholder.com/24?text=📍'">
+                    </div>
+                    <div class="contact-text">
+                        <a href="https://maps.google.com/?q=Los+Angeles+California+USA" target="_blank">
+                            کالیفرنیا، لس آنجلس، آمریکا
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ساعت کاری (فقط متن) -->
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <img src="images/icon-clock.png" alt="ساعت کاری"
+                            onerror="this.src='https://via.placeholder.com/24?text=🕒'">
+                    </div>
+                    <div class="contact-text">
+                        <p>شنبه تا پنجشنبه: ۹ صبح تا ۶ عصر</p>
+                    </div>
+                </div>
+
+                <!-- شبکه‌های اجتماعی -->
+                <div class="social-icons">
+                    <a href="#" target="_blank">
+                        <img src="images/icon-facebook.png" alt="فیسبوک"
+                            onerror="this.src='https://via.placeholder.com/20?text=f'">
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <img src="images/icon-instagram.png" alt="اینستاگرام"
+                            onerror="this.src='https://via.placeholder.com/20?text=in'">
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="images/icon-telegram.png" alt="تلگرام"
+                            onerror="this.src='https://via.placeholder.com/20?text=te'">
+                    </a>
+                </div>
+            </div>
+
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="name" name="name" placeholder="نام و نام خانوادگی" required>
+                <input type="email" id="email" name="email" placeholder="ایمیل" required>
+                <input type="tel" id="phone" name="phone" placeholder="شماره تماس (اختیاری)">
+                <textarea id="message" name="message" rows="4" placeholder="پیام شما..." required></textarea>
+                <button type="submit">📨 ارسال پیام</button>
+                <div id="formStatus" class="form-status"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            formStatus.textContent = '⏳ در حال ارسال...';
+            formStatus.style.color = '#0a5c8e';
+            formStatus.style.background = '#e3f2fd';
+
+            const formData = new FormData(form);
+            try {
+                const response = await fetch('https://formspree.io/f/xjgjvokv', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    formStatus.textContent = '✅ پیام شما با موفقیت ارسال شد! به زودی با شما تماس می‌گیریم.';
+                    formStatus.style.color = '#155724';
+                    formStatus.style.background = '#d4edda';
+                    form.reset();
+                } else {
+                    formStatus.textContent = '❌ خطا در ارسال. لطفاً دوباره تلاش کنید.';
+                    formStatus.style.color = '#721c24';
+                    formStatus.style.background = '#f8d7da';
+                }
+            } catch (error) {
+                formStatus.textContent = '❌ خطای شبکه. اتصال اینترنت خود را بررسی کنید.';
+                formStatus.style.color = '#721c24';
+                formStatus.style.background = '#f8d7da';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
