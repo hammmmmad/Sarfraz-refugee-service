@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>خدمات مهاجرتی | مشاوره و راهنمایی تخصصی</title>
+    <!-- Font Awesome 6 (آیکون‌های حرفه‌ای) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- گوگل فونت Inter -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f0fa 100%);
+            color: #0f172a;
+            line-height: 1.55;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ===== هدر با لوگو (تصویر ثابت) و دکمه خانه ===== */
+        .services-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 1rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            padding: 8px;
+        }
+
+        .logo-text {
+            font-weight: 500;
+            color: #1e293b;
+            font-size: 0.9rem;
+            background: #f1f5f9;
+            padding: 6px 16px;
+            border-radius: 40px;
+            color: #1e40af;
+        }
+
+        .btn-home {
+            background: #1e293b;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.25s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-home i {
+            font-size: 1rem;
+        }
+
+        .btn-home:hover {
+            background: #0f172a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        /* عنوان اصلی و متن تعهد */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero-section h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0f2b3d, #1e4a76);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.75rem;
+        }
+
+        .commitment-text {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 1.2rem 2rem;
+            border-radius: 2rem;
+            font-size: 1rem;
+            color: #1e3a5f;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(4px);
+            line-height: 1.7;
+        }
+
+        .commitment-text i {
+            color: #3b82f6;
+            margin-left: 6px;
+        }
+
+        /* شبکه خدمات */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 1.8rem;
+            padding: 1.8rem 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eef2ff;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+            border-color: #cbdff2;
+        }
+
+        /* آیکون سرویس (از تصویر شما) */
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.2rem;
+            background: #eef2ff;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-icon img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        .service-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #0c4a6e;
+        }
+
+        .service-card p {
+            color: #334155;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* فوتر */
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #5b6e8c;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.8rem;
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 640px) {
+            .services-header {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .logo-area {
+                justify-content: center;
+            }
+
+            .btn-home {
+                justify-content: center;
+            }
+
+            .hero-section h1 {
+                font-size: 1.7rem;
+            }
+
+            .commitment-text {
+                font-size: 0.9rem;
+                padding: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- هدر با لوگو (تصویر ثابت) و دکمه خانه -->
+        <div class="services-header">
+            <div class="logo-area">
+                <!-- لوگوی ثابت: آدرس تصویر خود را در src قرار دهید -->
+                <img id="serviceLogo" class="logo-img" src="images/logo.png" alt="لوگو موسسه">
+                <span class="logo-text"><i class="fas fa-briefcase"></i> موسسه مهاجرتی</span>
+            </div>
+            <a href="#" id="homeButton" class="btn-home">
+                <i class="fas fa-home"></i> برگشت به خانه
+            </a>
+        </div>
+
+        <!-- بخش معرفی و تعهد -->
+        <div class="hero-section">
+            <h1><i class="fas fa-handshake"></i> خدمات مهاجرتی ما</h1>
+            <div class="commitment-text">
+                <i class="fas fa-quote-right"></i>
+                ما متعهد هستیم تا با ارائه خدمات حرفه‌ای و به‌روز، مسیر مهاجرت را برای شما هموارتر و آگاهانه‌تر بسازیم.
+            </div>
+        </div>
+
+        <!-- شبکه خدمات (6 سرویس با آیکون‌های قابل تنظیم توسط شما از طریق تغییر src) -->
+        <div class="services-grid" id="servicesGrid"></div>
+
+        <div class="footer-note">
+            <i class="fas fa-star-of-life"></i> همراه شما در تمام مراحل مهاجرت
+        </div>
+    </div>
+
+    <script>
+        // ========== داده خدمات (مطابق متن ارسالی) ==========
+        const servicesData = [
+            {
+                title: "مشاوره رایگان مهاجرت",
+                desc: "ارائه مشاوره ابتدایی و تخصصی به‌صورت رایگان، جهت آشنایی شما با مسیرهای مختلف مهاجرت و انتخاب بهترین گزینه مطابق شرایط‌تان.",
+                iconSrc: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"  // آدرس آیکون پیش‌فرض (شما می‌توانید تغییر دهید)
+            },
+            {
+                title: "نشر اخبار مهاجرتی",
+                desc: "پوشش و نشر تازه‌ترین اخبار و تحولات مهاجرتی، به‌ویژه در مورد ایالات متحده، تا شما همیشه از آخرین تغییرات و فرصت‌ها آگاه باشید.",
+                iconSrc: "https://cdn-icons-png.flaticon.com/512/4280/4280793.png"
+            },
+            {
+                title: "ثبت‌نام بورسیه‌های بین‌المللی",
+                desc: "همکاری در معرفی و ثبت‌نام بورسیه‌های تحصیلی از کشورهای مختلف، برای کمک به آینده تحصیلی و حرفه‌ای شما.",
+                iconSrc: "https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
+            },
+            {
+                title: "ثبت‌نام ویزاهای بشردوستانه",
+                desc: "راهنمایی و همراهی در پروسه ثبت‌نام ویزاهای بشردوستانه، با ارائه معلومات دقیق و قابل اعتماد.",
+                iconSrc: "https://cdn-icons-png.flaticon.com/512/2885/2885412.png"
+            },
+            {
+                title: "رهنمودهای مهاجرتی",
+                desc: "ارائه رهنمودهای گام به گام و تخصصی برای طی کردن مسیر مهاجرت، از انتخاب مقصد تا آماده‌سازی مدارک.",
+                iconSrc: "https://cdn-icons-png.flaticon.com/512/2983/2983996.png"
+            },
+            {
+                title: "سمینارهای تقویتی",
+                desc: "برگزاری جلسات آموزشی و سمینارهای کاربردی جهت ارتقای دانش شما در زمینه مهاجرت و آماده‌سازی بهتر برای مراحل مختلف این مسیر.",
+                iconSrc: "https://cdn-icons-png.flaticon.com/512/2484/2484185.png"
+            }
+        ];
+
+        // تابع برای رندر کردن کارت‌های خدمات
+        function renderServices() {
+            const grid = document.getElementById('servicesGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            servicesData.forEach((service) => {
+                const card = document.createElement('div');
+                card.className = 'service-card';
+
+                // قسمت آیکون (تصویر)
+                const iconDiv = document.createElement('div');
+                iconDiv.className = 'service-icon';
+                const img = document.createElement('img');
+                img.src = service.iconSrc;
+                img.alt = service.title;
+                iconDiv.appendChild(img);
+
+                // عنوان و توضیحات
+                const titleElem = document.createElement('h3');
+                titleElem.innerText = service.title;
+                const descElem = document.createElement('p');
+                descElem.innerText = service.desc;
+
+                card.appendChild(iconDiv);
+                card.appendChild(titleElem);
+                card.appendChild(descElem);
+                grid.appendChild(card);
+            });
+        }
+
+        // ========== دکمه برگشت به خانه (تنظیم لینک توسط شما) ==========
+        const homeBtn = document.getElementById('homeButton');
+        // *** لینک دلخواه خود را در این متغیر قرار دهید ***
+        const yourCustomHomeLink = "/";   // <--- اینجا تغییر دهید (مثلاً "https://example.com" یا "index.html")
+
+        homeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (yourCustomHomeLink && yourCustomHomeLink !== "#") {
+                window.location.href = yourCustomHomeLink;
+            } else {
+                alert("لطفاً لینک برگشت به خانه را در متغیر yourCustomHomeLink تنظیم کنید.");
+            }
+        });
+
+        // رندر اولیه خدمات
+        renderServices();
+    </script>
+</body>
+
+</html>
