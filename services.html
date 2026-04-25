@@ -226,6 +226,13 @@
                 gap: 1.2rem;
             }
         }
+
+        /* استایل لینک کارت‌ها - فقط برای کلیک‌پذیر کردن کل کارت */
+        .service-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
     </style>
 </head>
 
@@ -266,32 +273,38 @@
             {
                 title: "مشاوره رایگان مهاجرت",
                 desc: "ارائه مشاوره ابتدایی و تخصصی به‌صورت رایگان، جهت آشنایی شما با مسیرهای مختلف مهاجرت و انتخاب بهترین گزینه مطابق شرایط‌تان.",
-                iconSrc: "images/counseling.png"  // آدرس آیکون پیش‌فرض (شما می‌توانید تغییر دهید)
+                iconSrc: "images/counseling.png",
+                link: "counseling.html"   // لینک صفحه مشاوره
             },
             {
                 title: "نشر اخبار مهاجرتی",
                 desc: "پوشش و نشر تازه‌ترین اخبار و تحولات مهاجرتی، به‌ویژه در مورد ایالات متحده، تا شما همیشه از آخرین تغییرات و فرصت‌ها آگاه باشید.",
-                iconSrc: "images/news.png"
+                iconSrc: "images/news.png",
+                link: "news.html"          // لینک صفحه اخبار
             },
             {
                 title: "ثبت‌نام بورسیه‌های بین‌المللی",
                 desc: "همکاری در معرفی و ثبت‌نام بورسیه‌های تحصیلی از کشورهای مختلف، برای کمک به آینده تحصیلی و حرفه‌ای شما.",
-                iconSrc: "images/scholarship.png"
+                iconSrc: "images/scholarship.png",
+                link: "scholarship.html"   // لینک صفحه بورسیه
             },
             {
                 title: "ثبت‌ نام ویزاهای بشردوستانه",
                 desc: "راهنمایی و همراهی در پروسه ثبت‌نام ویزاهای بشردوستانه، با ارائه معلومات دقیق و قابل اعتماد.",
-                iconSrc: "images/news.png"
+                iconSrc: "images/visa.png",
+                link: "visa.html"          // لینک صفحه ویزا
             },
             {
                 title: "رهنمودهای مهاجرتی",
                 desc: "ارائه رهنمودهای گام به گام و تخصصی برای طی کردن مسیر مهاجرت، از انتخاب مقصد تا آماده‌سازی مدارک.",
-                iconSrc: "images/guide.png"
+                iconSrc: "images/guide.png",
+                link: "guide.html"         // لینک صفحه رهنمودها
             },
             {
                 title: "سمینارهای تقویتی",
                 desc: "برگزاری جلسات آموزشی و سمینارهای کاربردی جهت ارتقای دانش شما در زمینه مهاجرت و آماده‌سازی بهتر برای مراحل مختلف این مسیر.",
-                iconSrc: "images/course.png"
+                iconSrc: "images/course.png",
+                link: "seminar.html"       // لینک صفحه سمینارها
             }
         ];
 
@@ -301,8 +314,10 @@
             if (!grid) return;
             grid.innerHTML = '';
             servicesData.forEach((service) => {
-                const card = document.createElement('div');
-                card.className = 'service-card';
+                // ساخت لینک
+                const link = document.createElement('a');
+                link.href = service.link;
+                link.className = 'service-link';
 
                 // قسمت آیکون (تصویر)
                 const iconDiv = document.createElement('div');
@@ -318,9 +333,15 @@
                 const descElem = document.createElement('p');
                 descElem.innerText = service.desc;
 
-                card.appendChild(iconDiv);
-                card.appendChild(titleElem);
-                card.appendChild(descElem);
+                // اضافه کردن محتوا به لینک
+                link.appendChild(iconDiv);
+                link.appendChild(titleElem);
+                link.appendChild(descElem);
+
+                // اضافه کردن لینک به کارت
+                const card = document.createElement('div');
+                card.className = 'service-card';
+                card.appendChild(link);
                 grid.appendChild(card);
             });
         }
