@@ -4,7 +4,7 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sarfraz Refugee Service | خدمات پناهندگان سرفراز</title>
+        <title>Sarfraz Refugee Service | خدمات مهاجرت سرفراز</title>
         <style>
                 * {
                         margin: 0;
@@ -47,7 +47,6 @@
                 .logo-img {
                         width: 60px;
                         height: 60px;
-
                 }
 
                 .logo-text {
@@ -81,7 +80,6 @@
                         font-weight: 500;
                         font-size: 0.95rem;
                         transition: color 0.3s;
-
                         padding: 5px 0;
                 }
 
@@ -199,6 +197,89 @@
                         margin-bottom: 0.5rem;
                 }
 
+                /* بخش رویدادها */
+                .events-section {
+                        max-width: 1200px;
+                        margin: 2rem auto;
+                        padding: 0 1rem;
+                }
+
+                .section-header {
+                        text-align: center;
+                        margin-bottom: 2rem;
+                }
+
+                .section-header h2 {
+                        color: #667eea;
+                        font-size: 2rem;
+                        border: none;
+                        justify-content: center;
+                }
+
+                .section-header p {
+                        color: #555;
+                        font-size: 1rem;
+                }
+
+                .events-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                        gap: 2rem;
+                        margin-top: 1.5rem;
+                }
+
+                .event-card {
+                        background: white;
+                        border-radius: 16px;
+                        overflow: hidden;
+                        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+                        transition: transform 0.3s;
+                }
+
+                .event-card:hover {
+                        transform: translateY(-5px);
+                }
+
+                .event-img {
+                        width: 100%;
+                        height: 200px;
+                        object-fit: cover;
+                        transition: transform 0.5s;
+                }
+
+                .event-card:hover .event-img {
+                        transform: scale(1.05);
+                }
+
+                .event-content {
+                        padding: 1.5rem;
+                        text-align: center;
+                }
+
+                .event-title {
+                        color: #333;
+                        font-size: 1.1rem;
+                        margin-bottom: 1rem;
+                        line-height: 1.5;
+                        height: 50px;
+                        overflow: hidden;
+                }
+
+                .event-btn {
+                        display: inline-block;
+                        background: linear-gradient(135deg, #667eea, #764ba2);
+                        color: white;
+                        padding: 8px 25px;
+                        border-radius: 30px;
+                        text-decoration: none;
+                        font-weight: 500;
+                        transition: transform 0.3s;
+                }
+
+                .event-btn:hover {
+                        transform: scale(1.05);
+                }
+
                 /* فوتر با آیکن */
                 .footer {
                         background: #1a1a2e;
@@ -293,8 +374,8 @@
 
                 /* آیکن بالای صفحه */
                 .top-icon {
-                        width: 60px;
-                        height: 60px;
+                        width: 80px;
+                        height: 80px;
                         margin-bottom: 1rem;
                 }
 
@@ -339,8 +420,17 @@
                         }
 
                         .top-icon {
-                                width: 45px;
-                                height: 45px;
+                                width: 55px;
+                                height: 55px;
+                        }
+
+                        .events-grid {
+                                grid-template-columns: 1fr;
+                                gap: 1.5rem;
+                        }
+
+                        .event-title {
+                                height: auto;
                         }
 
                         .footer-container {
@@ -370,7 +460,7 @@
                 <div class="nav-container">
                         <div class="logo-area">
                                 <img src="images/logo.png" alt="لوگو" class="logo-img">
-                                <div class="logo-text">SARFAZ REFUGEE SREVICE</div>
+                                <div class="logo-text">SARFAZ REFUGEE SERVICE</div>
                         </div>
                         <div class="menu-toggle">☰</div>
                         <ul class="nav-menu">
@@ -404,13 +494,6 @@
                                                 سوالات متداول
                                         </a>
                                 </li>
-                                <li>
-
-                                </li>
-
-                                <li>
-
-                                </li>
                         </ul>
                 </div>
         </nav>
@@ -418,65 +501,42 @@
         <!-- محتوا -->
         <div class="container">
                 <div style="text-align:center; margin-bottom:2rem">
-                        <img src="images/logo.png" alt="پناهندگان" class="top-icon">
-                        <h1> خدمات مهاجرت </h1>
-
+                        <img src="images/logo.png" alt="مهاجرت" class="top-icon">
+                        <h1>خدمات مهاجرت</h1>
                 </div>
+        </div>
 
-                <!-- گرین کارت -->
-                <h2>
-                        <img src="images/card.png" alt="گرین کارت">
-                        گرین کارت آمریکا
-                </h2>
-                <div class="card">
-                        <h3>گرین کارت چیست؟</h3>
-                        <p>گرین کارت یا کارت اقامت دائم آمریکا، مجوزی است که به فرد اجازه می‌دهد به طور قانونی و دائمی
-                                در آمریکا زندگی و کار کند. پس از ۵ سال اقامت دائم، می‌توانید برای شهروندی آمریکا اقدام
-                                کنید.</p>
-                        <ul>
-                                <li>از طریق خانواده (همسر، والدین، فرزند شهروند آمریکا)</li>
-                                <li>از طریق کار (H-1B, L-1, EB-1, EB-2, EB-3)</li>
-                                <li>از طریق سرمایه‌گذاری (EB-5 با حداقل $800,000)</li>
-                                <li>قرعه‌کشی گرین کارت (DV Lottery)</li>
-                                <li>پناهندگی و برنامه USRAP</li>
-                                <li>دریافت از طریق برنامه SIV </li>
-                        </ul>
-                        <div class="info-box"><strong>هزینه تقریبی:</strong> $1,500 تا $3,000</div>
+        <!-- بخش رویدادها -->
+        <div class="events-section">
+                <div class="section-header">
+                        <h2>📰 آخرین رویدادها</h2>
+                        <p>جدیدترین اخبار مهاجرت و پناهندگی</p>
                 </div>
+                <div class="events-grid">
 
-                <!-- ویزای SIV -->
-                <h2>
-                        <img src="images/possport.png" alt="SIV">
-                        ویزای SIV
-                </h2>
-                <div class="card">
-                        <h3>SIV چیست؟</h3>
-                        <p>SIV یا Special Immigrant Visa برای افرادی است که در افغانستان یا عراق برای دولت آمریکا کار
-                                کرده‌اند و در خطر هستند.</p>
-                        <ul>
-                                <li>حداقل ۲ سال سابقه کار برای دولت آمریکا</li>
-                                <li>نامه تأیید از کارفرمای آمریکایی</li>
-                                <li>اثبات تهدید جدی به دلیل همکاری با آمریکا</li>
-                        </ul>
-                        <div class="info-box"><strong>زمان رسیدگی:</strong> ۱۲ تا ۲۴ ماه</div>
-                </div>
+                        <!-- رویداد 1 -->
+                        <div class="event-card">
+                                <img src="https://cdn.pixabay.com/photo/2020/03/09/21/52/qatar-4917954_640.jpg"
+                                        alt="افغان‌ها در قطر" class="event-img">
+                                <div class="event-content">
+                                        <h3 class="event-title">افغان‌های گیرمانده در قطر از اقدام ترامپ برای فرستادن به
+                                                کنگو ابراز خیانت
+                                                کردند</h3>
+                                        <a href="news/afghan-qatar-trump.html" class="event-btn">بیشتر بدانید ←</a>
+                                </div>
+                        </div>
 
-                <!-- برنامه USRAP -->
-                <h2>
-                        <img src="images/refugee.png" alt="USRAP">
-                        برنامه USRAP
-                </h2>
-                <div class="card">
-                        <h3>USRAP چیست؟</h3>
-                        <p>برنامه رسمی دولت آمریکا برای پذیرش پناهندگان از کشورهای مختلف.</p>
-                        <ul>
-                                <li>ارجاع توسط UNHCR یا سفارت آمریکا</li>
-                                <li>بررسی امنیتی توسط FBI و DHS</li>
-                                <li>مصاحبه با افسر USCIS در کشور سوم</li>
-                                <li>معاینه پزشکی و استقرار در آمریکا</li>
-                        </ul>
-                        <div class="info-box"><strong>هزینه‌ها:</strong> برخی هزینه‌ها توسط سازمان‌های بین‌المللی پوشش
-                                داده می‌شود</div>
+                        <!-- رویداد 2 -->
+                        <div class="event-card">
+                                <img src="https://cdn.pixabay.com/photo/2021/05/07/14/30/afghanistan-6236630_640.jpg"
+                                        alt="طالبان" class="event-img">
+                                <div class="event-content">
+                                        <h3 class="event-title">طالبان از افغان‌هایی که به آمریکا کمک کردند خواست به
+                                                کشور بازگردند</h3>
+                                        <a href="news/1.html" class="event-btn">بیشتر بدانید ←</a>
+                                </div>
+                        </div>
+
                 </div>
         </div>
 
@@ -495,13 +555,10 @@
                                         <img src="images/location.png" alt="آدرس">
                                         آدرس شهر ایبک سمنگان
                                 </p>
-
                                 <p>
                                         <img src="images/online.png" alt="آدرس">
                                         خدمات آنلاین در سرار افغانستان و جهان
                                 </p>
-
-
                                 <p>
                                         <img src="images/gmail.png" alt="ایمیل پشتبانی">
                                         sarfraz2026@zohomail.com
@@ -533,7 +590,6 @@
                                                 <img src="images/facebook.png" alt="فیسبوک">
                                                 فیسبوک
                                         </a>
-
                                         <a class="social-link"
                                                 onclick="location.href='https://www.instagram.com/sarfraz_refugee_service?igsh=MXRvMG55cjRieGhucg=='">
                                                 <img src="images/instagram.png" alt="انستاگرام ">
