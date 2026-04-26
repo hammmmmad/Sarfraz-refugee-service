@@ -117,15 +117,15 @@
                 }
 
                 h1 {
-                        color: #667eea;
+                        color: #000000;
                         margin-bottom: 1rem;
                         font-size: 2rem;
-                        border-right: 4px solid #764ba2;
+                        border-right: 4px solid #000000;
                         padding-right: 15px;
                 }
 
                 h2 {
-                        color: #764ba2;
+                        color: #06000c;
                         margin: 1.5rem 0 0.8rem 0;
                         font-size: 1.4rem;
                         display: flex;
@@ -145,12 +145,12 @@
                 }
 
                 h3 {
-                        color: #667eea;
+                        color: #0f0f0f;
                         margin: 1rem 0 0.5rem 0;
                 }
 
                 p {
-                        color: #444;
+                        color: #eeeded;
                         line-height: 1.8;
                         margin-bottom: 1rem;
                 }
@@ -380,6 +380,27 @@
                         margin-bottom: 1rem;
                 }
 
+                /* استایل متن معرفی اضافه شده */
+                .intro-text {
+                        background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+                        padding: 1.8rem;
+                        border-radius: 20px;
+                        margin: 1.5rem 0;
+                        border-right: 4px solid #667eea;
+                        text-align: center;
+                }
+
+                .intro-text p {
+                        font-size: 1.05rem;
+                        line-height: 1.9;
+                        color: #333;
+                        margin-bottom: 0;
+                }
+
+                .intro-text strong {
+                        color: #010b35;
+                }
+
                 /* موبایل */
                 @media (max-width: 768px) {
                         .menu-toggle {
@@ -450,6 +471,14 @@
                         .social-link:hover {
                                 transform: translateX(0);
                         }
+
+                        .intro-text {
+                                padding: 1rem;
+                        }
+
+                        .intro-text p {
+                                font-size: 0.95rem;
+                        }
                 }
         </style>
 </head>
@@ -479,7 +508,7 @@
                                 </li>
                                 <li>
                                         <a href="ai.html">
-                                                <img src="images/bot.png" alt="AI">
+                                                <img src="images/ai.png" alt="AI">
                                                 AI
                                         </a>
                                 </li>
@@ -504,6 +533,19 @@
                 <div style="text-align:center; margin-bottom:2rem">
                         <img src="images/logo.png" alt="مهاجرت" class="top-icon">
                         <h1>خدمات مهاجرت</h1>
+
+                        <!-- متن دوم تأیید شده - اضافه شده -->
+                        <div class="intro-text">
+                                <p>
+                                        <strong>Sarfraz Refugee Service</strong> به عنوان بزرگترین مرجع مشاوره مهاجرت،
+                                        با افتخار خدمات خود را به <strong>افغان‌ها و ایرانیان</strong> ارائه می‌دهد. ما
+                                        متخصص در <strong>ثبت‌نام ویزای بشردوستانه</strong>، <strong>برنامه‌های
+                                                اسپانسر</strong>، <strong>مشاوره تخصصی مهاجرت</strong> و
+                                        <strong>پشتیبانی کامل در تمام مراحل مهاجرت</strong> هستیم. همراه شما تا امنیت و
+                                        آرامش.
+                                </p>
+                        </div>
+
                 </div>
         </div>
 
@@ -545,7 +587,9 @@
 
                         <div class="footer-section">
                                 <h4>خدمات مهاجرت</h4>
-                                <p>ارائه خدمات مشاوره مهاجرت به آمریکا<br>گرین کارت | ویزای SIV | برنامه USRAP</p>
+                                <p>معتبرترین خدمات مهاجرت در افغانستان
+                                        <br> ارایه خدمات مهاجرتی در سراسر جهان
+                                </p>
                         </div>
 
                         <div class="footer-section">
@@ -567,8 +611,8 @@
                                         0792665622
                                 </p>
                                 <p>
-                                        <img src="images/whatsapp.png" alt="واتساپ">
-                                        <a href="https://wa.me/message/ZY2KWEKZLQCXF1">واتساپ</a>
+                                        <img src="/whatsapp.png" alt="واتساپ">
+                                        <a href="httimagesps://wa.me/message/ZY2KWEKZLQCXF1">واتساپ</a>
                                 </p>
                         </div>
 

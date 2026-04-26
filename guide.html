@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>رهنمودهای مهاجرتی | Sarfraz Refugee Service</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f0fa 100%);
+            color: #0f172a;
+            line-height: 1.55;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 1rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            padding: 8px;
+        }
+
+        .logo-text {
+            font-weight: 500;
+            color: #1e293b;
+            font-size: 0.9rem;
+            background: #f1f5f9;
+            padding: 6px 16px;
+            border-radius: 40px;
+            color: #1e40af;
+        }
+
+        .btn-home {
+            background: #1e293b;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.25s;
+        }
+
+        .btn-home:hover {
+            background: #0f172a;
+            transform: translateY(-2px);
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0f2b3d, #1e4a76);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.75rem;
+        }
+
+        .guidance-box {
+            background: white;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eef2ff;
+        }
+
+        .guidance-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #1e293b;
+            margin-bottom: 2rem;
+        }
+
+        .guidance-text i {
+            color: #3b82f6;
+            margin-left: 8px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-contact i {
+            font-size: 1.5rem;
+        }
+
+        .btn-contact.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-contact.whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-contact.instagram {
+            background: linear-gradient(45deg, #f09433, #d62976, #962fbf, #405de6);
+            color: white;
+        }
+
+        .btn-contact.instagram:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .note {
+            text-align: center;
+            background: #fef3c7;
+            padding: 1rem;
+            border-radius: 1rem;
+            margin-top: 2rem;
+            color: #92400e;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #5b6e8c;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.8rem;
+        }
+
+        @media (max-width: 640px) {
+            .page-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-area {
+                justify-content: center;
+            }
+
+            .hero-section h1 {
+                font-size: 1.5rem;
+            }
+
+            .guidance-text {
+                font-size: 1rem;
+            }
+
+            .btn-contact {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <div class="logo-area">
+                <img class="logo-img" src="images/logo.png" alt="لوگو">
+                <span class="logo-text"><i class="fas fa-compass"></i> رهنمودهای مهاجرتی</span>
+            </div>
+            <a href="index.html" class="btn-home">
+                <i class="fas fa-home"></i> برگشت به خانه
+            </a>
+        </div>
+
+        <div class="hero-section">
+            <h1><i class="fas fa-map-signs"></i> رهنمودهای مهاجرتی</h1>
+        </div>
+
+        <div class="guidance-box">
+            <div class="guidance-text">
+                <i class="fas fa-quote-right"></i>
+                برای دریافت جدیدترین رهنمودهای مهاجرتی، اطلاع از تغییرات ویزاهای بشردوستانه، برنامه‌های اسپانسر و مشاوره
+                تخصصی،
+                <strong>فقط از طریق شبکه‌های اجتماعی ما را دنبال کنید و تماس بگیرید.</strong>
+                <br><br>
+                تیم حرفه‌ای <strong>Sarfraz Refugee Service</strong> آماده پاسخگویی به سوالات شما در تمام مراحل مهاجرت
+                است.
+                <i class="fas fa-quote-left"></i>
+            </div>
+
+            <div class="contact-buttons">
+                <a href="https://wa.me/message/ZY2KWEKZLQCXF1?src=qr" class="btn-contact whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    تماس از طریق واتساپ
+                </a>
+                <a href="https://www.instagram.com/sarfraz_refugee_service" class="btn-contact instagram"
+                    target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    دنبال کردن در اینستاگرام
+                </a>
+            </div>
+
+            <div class="note">
+                <i class="fas fa-info-circle"></i>
+                توجه: تمامی خدمات مشاوره از طریق واتساپ و اینستاگرام ارائه می‌شود. لطفاً جهت دریافت اطلاعات دقیق و
+                به‌روز، با ما در ارتباط باشید.
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <i class="fas fa-heart" style="color: #e11d48;"></i> Sarfraz Refugee Service - همراه شما تا امنیت و آرامش
+        </div>
+    </div>
+</body>
+
+</html>

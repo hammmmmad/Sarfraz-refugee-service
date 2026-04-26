@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جدیدترین اخبار روز | خدمات مهاجرت سرفراز</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ef 100%);
+        }
+
+        .navbar {
+            background: white;
+            padding: 0.8rem 2rem;
+            border-bottom: 1px solid #eaeaea;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-text {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu li {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        .nav-menu a img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .news-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .news-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .news-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-category {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            background: #f0f0ff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+        }
+
+        .news-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            color: #1a1a2e;
+        }
+
+        .news-excerpt {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* مودال برای نمایش کامل خبر */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            direction: rtl;
+        }
+
+        .modal-content {
+            background: #f5f5f5;
+            max-width: 800px;
+            margin: 2rem auto;
+            border-radius: 1.5rem;
+            position: relative;
+        }
+
+        .close-modal {
+            position: sticky;
+            top: 1rem;
+            left: 1rem;
+            float: left;
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            margin: 1rem;
+            z-index: 10;
+        }
+
+        .close-modal:hover {
+            background: #764ba2;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            clear: both;
+        }
+
+        .modal-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .modal-deck {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            border-right: 3px solid #667eea;
+            padding-right: 1rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            border-radius: 12px;
+            margin: 1rem 0;
+        }
+
+        .modal-content-text p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content-text blockquote {
+            border-right: 4px solid #667eea;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background: #f9f9f9;
+            font-style: italic;
+        }
+
+        .footer {
+            background: #1a1a2e;
+            color: #aaa;
+            margin-top: 2rem;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .news-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-title {
+                font-size: 1.3rem;
+            }
+
+            .modal-body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-area">
+                <img src="../../images/logo.png" alt="لوگو" class="logo-img">
+                <div class="logo-text">خدمات مهاجرت</div>
+            </div>
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-menu">
+                <li><a href="../../index.html"><img src="../../images/home.png" alt="خانه"> خانه</a></li>
+                <li><a href="../../services.html"><img src="../../images/customer.png" alt="خدمات">
+                        خدمات</a></li>
+                <li><a href="../../ai.html"><img src="../../images/bot.png" alt="AI"> AI</a></li>
+                <li><a href="../../contact.html"><img src="../../images/call.png" alt="تماس با ما"> تماس با ما</a></li>
+                <li><a href="../../faq.html"><img src="../../images/f&a.png" alt="سوالات متداول"> سوالات متداول</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="news-header">
+        <h1><i class="fas fa-newspaper"></i> جدیدترین اخبار روز</h1>
+        <p>آخرین تحولات مهاجرتی، سیاسی و اجتماعی برای افغان‌ها</p>
+    </div>
+
+    <div class="news-grid" id="newsGrid"></div>
+
+    <div class="footer">
+        <p>© 2026 Sarfraz Refugee Service - همه حقوق محفوظ است</p>
+    </div>
+
+    <!-- مودال برای نمایش کامل خبر -->
+    <div id="newsModal" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal()">✕</div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const newsData = [
+            {
+                id: 1,
+                category: "بین‌الملل",
+                title: "افغان‌های گیرمانده در قطر از اقدام ترامپ برای فرستادن به کنگو ابراز خیانت کردند",
+                deck: "صدها خانواده افغان که سال‌ها در قطر منتظر انتقال به آمریکا هستند، با شنیدن خبر انتقال احتمالی به کنگو، احساس خیانت و ناامیدی عمیقی کرده‌اند.",
+                image: "../news-pic/qater.jpg",
+                caption: "کمپ موقت پناهندگان افغان در قطر",
+                date: "۲۵ اپریل ۲۰۲۶ - ۱۴:۳۰",
+                author: "Sarfraz Khamoosh",
+                authorTitle: "گزارشگر و ادمین",
+                authorAvatar: "../news-pic/khamoosh.png",
+                content: `
+                    <p>در تازه‌ترین تحولات مربوط به پناهندگان افغان، گروه‌های مدافع حقوق بشر گزارش داده‌اند که دولت دونالد ترامپ، رئیس‌جمهور آمریکا، به طور جدی در حال بررسی طرح انتقال هزاران پناهجوی افغان مقیم قطر به جمهوری دموکراتیک کنگو (DRC) است. این خبر با واکنش شدید و احساس خیانت گسترده از سوی این خانواده‌ها مواجه شده است.</p>
+                    <p>بیش از دو سال از خروج نیروهای آمریکایی از افغانستان می‌گذرد و بسیاری از افغان‌هایی که با دولت آمریکا همکاری داشتند، همچنان در مراکز موقت در قطر سرگردان هستند.</p>
+                    <blockquote>"ما جان خود را برای آمریکا به خطر انداختیم، حالا پاداش ما فرستادن به کشوری جنگ‌زده در آفریقاست؟ این بزرگ‌ترین خیانتی است که در حق ما شد." - یکی از پناهجویان.</blockquote>
+                    <p>سازمان ملل نسبت به سرنوشت این پناهجویان ابراز نگرانی کرده و خواستار شفافیت در این طرح شده است.</p>
+                    <p>احساس خیانت در حالی ابراز می‌شود که شماری از کارشناسان معتقدند فشارهای انتخاباتی، دولت ترامپ را به سمت چنین تصمیمات غیرانسانی سوق داده است.</p>
+                `
+            },
+            {
+                id: 2,
+                category: "افغانستان",
+                title: "طالبان از افغان‌هایی که در جنگ به آمریکا کمک کرده‌اند خواست به کشور بازگردند",
+                deck: "گروه طالبان اعلام کرد که افغان‌های مقیم قطر که سابقه همکاری با نیروهای خارجی را دارند، می‌توانند با خیال آسوده به کشور بازگردند.",
+                image: "../news-pic/talib.webp",
+                caption: "منظره‌ای از شهر کابل پس از تسلط طالبان",
+                date: "۲۵ اپریل ۲۰۲۶ - ۱۴:۳۰",
+                author: "Sarfraz Khamoosh",
+                authorTitle: "گزارشگر و ادمین",
+                authorAvatar: "../news-pic/khamoosh.png",
+                content: `
+                    <p>ذبیح‌الله مجاهد، سخنگوی دولت طالبان، امروز در یک کنفرانس خبری اعلام کرد که درب‌های افغانستان به روی همه شهروندانی که به دلایل مختلف کشور را ترک کرده‌اند، باز است.</p>
+                    <p>مجاهد گفت: «ما از همه افغان‌هایی که در دو دهه اخیر با نیروهای بیگانه کار کرده‌اند، دعوت می‌کنیم که بدون هیچ ترسی به میهن خود بازگردند. عفو عمومی شامل حال همه آنها می‌شود.»</p>
+                    <blockquote>"دولت سرپرست افغانستان متعهد به حفظ امنیت همه شهروندان خود است. کشورتان منتظر بازگشت شماست." - ذبیح‌الله مجاهد.</blockquote>
+                    <p>این اظهارات در حالی مطرح می‌شود که تنها یک روز پیش، خبرهایی درباره طرح جنجالی دولت ترامپ برای انتقال این پناهجویان به کنگو منتشر شده بود.</p>
+                    <p>با این حال، بسیاری از پناهجویان افغان به این اظهارات با دیده تردید نگاه می‌کنند و سازمان‌های حقوق بشری نیز نسبت به این وعده ابراز تردید کرده‌اند.</p>
+                `
+            }
+        ];
+
+        function renderNews() {
+            const grid = document.getElementById('newsGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            newsData.forEach(news => {
+                const card = document.createElement('div');
+                card.className = 'news-card';
+                card.onclick = () => openModal(news.id);
+
+                card.innerHTML = `
+                    <img src="${news.image}" alt="${news.title}" class="news-image" onerror="this.src='https://via.placeholder.com/400x220?text=No+Image'">
+                    <div class="news-content">
+                        <span class="news-category"><i class="fas ${news.id === 1 ? 'fa-globe' : 'fa-landmark'}"></i> ${news.category}</span>
+                        <h3 class="news-title">${news.title}</h3>
+                        <p class="news-excerpt">${news.deck.substring(0, 100)}${news.deck.length > 100 ? '...' : ''}</p>
+                        <div class="news-meta">
+                            <span><i class="fas fa-calendar-alt"></i> ${news.date.split(' - ')[0]}</span>
+                            <span class="read-more">بیشتر بخوانید <i class="fas fa-arrow-left"></i></span>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function openModal(newsId) {
+            const news = newsData.find(n => n.id === newsId);
+            if (!news) return;
+
+            const modal = document.getElementById('newsModal');
+            const modalBody = document.getElementById('modalBody');
+
+            modalBody.innerHTML = `
+                <div class="modal-category">${news.category}</div>
+                <h1 class="modal-title">${news.title}</h1>
+                <div class="modal-deck">${news.deck}</div>
+                <div class="article-byline" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap;">
+                    <div class="author-info" style="display: flex; align-items: center; gap: 12px;">
+                        <img src="${news.authorAvatar}" alt="${news.author}" class="author-avatar-large" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;" onerror="this.src='https://via.placeholder.com/48'">
+                        <div>
+                            <div class="author-name" style="font-weight: 600;">${news.author}</div>
+                            <div class="author-title" style="font-size: 0.8rem; color: #888;">${news.authorTitle}</div>
+                        </div>
+                    </div>
+                    <div class="article-date" style="font-size: 0.85rem; color: #888;"><i class="fas fa-calendar-alt"></i> ${news.date}</div>
+                </div>
+                <img src="${news.image}" alt="${news.title}" class="modal-image" onerror="this.src='https://via.placeholder.com/800x400?text=No+Image'">
+                <div class="image-caption" style="font-size: 0.8rem; color: #777; text-align: center; margin-bottom: 1rem;">${news.caption}</div>
+                <div class="modal-content-text">
+                    ${news.content}
+                </div>
+            `;
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('newsModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('newsModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        renderNews();
+    </script>
+
+</body>
+
+</html>

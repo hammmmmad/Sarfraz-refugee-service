@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>خدمات مهاجرتی | مشاوره و راهنمایی تخصصی</title>
-    <!-- Font Awesome 6 (آیکون‌های حرفه‌ای) -->
+    <title>ویزای بشردوستانه | فرصت ویژه برای افغان‌ها</title>
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- گوگل فونت Inter -->
     <link
@@ -20,7 +20,7 @@
 
         body {
             font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e6f0fa 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #d4d4d4 10%);
             color: #0f172a;
             line-height: 1.55;
             padding: 2rem 1rem;
@@ -31,7 +31,6 @@
             margin: 0 auto;
         }
 
-        /* ===== هدر با لوگو (تصویر ثابت) و دکمه خانه ===== */
         .services-header {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -97,7 +96,6 @@
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
         }
 
-        /* عنوان اصلی و متن تعهد */
         .hero-section {
             text-align: center;
             margin-bottom: 3rem;
@@ -127,11 +125,10 @@
         }
 
         .commitment-text i {
-            color: #3b82f6;
+            color: #000000;
             margin-left: 6px;
         }
 
-        /* شبکه خدمات */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -140,7 +137,7 @@
         }
 
         .service-card {
-            background: white;
+            background: rgb(107, 0, 80);
             border-radius: 1.8rem;
             padding: 1.8rem 1.5rem;
             transition: all 0.3s ease;
@@ -155,7 +152,6 @@
             border-color: #cbdff2;
         }
 
-        /* آیکون سرویس (از تصویر شما) */
         .service-icon {
             width: 80px;
             height: 80px;
@@ -177,16 +173,40 @@
             font-size: 1.35rem;
             font-weight: 700;
             margin-bottom: 0.75rem;
-            color: #0c4a6e;
+            color: #ffffff;
         }
 
         .service-card p {
-            color: #334155;
+            color: #ffffff;
             font-size: 0.95rem;
             line-height: 1.6;
         }
 
-        /* فوتر */
+        /* استایل دکمه ثبت نام و معلومات */
+        .btn-info {
+            display: inline-block;
+            background: #ffffff;
+            color: rgb(107, 0, 80);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            transition: all 0.25s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-info i {
+            margin-left: 8px;
+        }
+
+        .btn-info:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
         .footer-note {
             text-align: center;
             margin-top: 2rem;
@@ -196,7 +216,12 @@
             padding-top: 1.8rem;
         }
 
-        /* ریسپانسیو */
+        .service-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
         @media (max-width: 640px) {
             .services-header {
                 flex-direction: column;
@@ -226,94 +251,106 @@
                 gap: 1.2rem;
             }
         }
-
-        /* استایل لینک کارت‌ها - فقط برای کلیک‌پذیر کردن کل کارت */
-        .service-link {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <!-- هدر با لوگو (تصویر ثابت) و دکمه خانه -->
         <div class="services-header">
             <div class="logo-area">
-                <!-- لوگوی ثابت: آدرس تصویر خود را در src قرار دهید -->
-                <img id="serviceLogo" class="logo-img" src="images/logo.png" alt="لوگو موسسه">
-                <span class="logo-text"><i class="fas fa-briefcase"></i> خدمات مهاجرت </span>
+                <img id="serviceLogo" class="logo-img" src="../images/logo.png" alt="لوگو موسسه">
+                <span class="logo-text"><i class="fas fa-hand-holding-heart"></i> ویزای بشردوستانه</span>
             </div>
-            <a href="#" id="homeButton" class="btn-home">
+            <a href="../home.html" id="homeButton" class="btn-home">
                 <i class="fas fa-home"></i> برگشت به خانه
             </a>
         </div>
 
-        <!-- بخش معرفی و تعهد -->
         <div class="hero-section">
-            <h1><i class="fas fa-handshake"></i> SARFAZ REFUGEE SERVICE </h1>
+            <h1><i class="fas fa-globe-americas"></i> ویزای بشردوستانه برای افغان‌ها</h1>
             <div class="commitment-text">
                 <i class="fas fa-quote-right"></i>
-                ما متعهد هستیم تا با ارائه خدمات حرفه‌ای و به‌روز، مسیر مهاجرت را برای شما هموارتر و آگاهانه‌تر بسازیم.
+                <h4>
+                    فرصتی برای زندگی بهتر - حمایت از افغان‌های آسیب‌ پـذیر در سراسر جهان </h4>
             </div>
         </div>
 
-        <!-- شبکه خدمات (6 سرویس با آیکون‌های قابل تنظیم توسط شما از طریق تغییر src) -->
         <div class="services-grid" id="servicesGrid"></div>
 
         <div class="footer-note">
-            <i class="fas fa-star-of-life"></i> همراه شما در تمام مراحل مهاجرت
+            <i class="fas fa-heart" style="color: #e11d48;"></i> همراه شما تا امنیت و آرامش
         </div>
     </div>
 
     <script>
-        // ========== داده خدمات (مطابق متن ارسالی) ==========
         const servicesData = [
             {
-                title: "مشاوره رایگان مهاجرت",
-                desc: "ارائه مشاوره ابتدایی و تخصصی به‌صورت رایگان، جهت آشنایی شما با مسیرهای مختلف مهاجرت و انتخاب بهترین گزینه مطابق شرایط‌تان.",
-                iconSrc: "images/counseling.png",
-                link: "contact/consulting.html"   // لینک صفحه مشاوره
+                title: "ویزای بشردوستانه استرالیا",
+                desc: "فرصت ویژه برای افغان‌های آسیب‌پذیر | برنامه حمایت از پناهندگان استرالیا",
+                iconSrc: "visa-pic/australia.png",
+                link: "a.html"
             },
             {
-                title: "نشر اخبار مهاجرتی",
-                desc: "پوشش و نشر تازه‌ترین اخبار و تحولات مهاجرتی، به‌ویژه در مورد ایالات متحده، تا شما همیشه از آخرین تغییرات و فرصت‌ها آگاه باشید.",
-                iconSrc: "images/news.png",
-                link: "news/day-news/day.html"          // لینک صفحه اخبار
+                title: "ویزای بشردوستانه کانادا",
+                desc: "فرصت ویژه برای افغان‌های آسیب‌پذیر | برنامه ویژه پناهندگی کانادا",
+                iconSrc: "visa-pic/canada.png",
+                link: "c.html"
             },
             {
-                title: "ثبت‌ نام ویزاهای بشردوستانه",
-                desc: "راهنمایی و همراهی در پروسه ثبت‌نام ویزاهای بشردوستانه، با ارائه معلومات دقیق و قابل اعتماد.",
-                iconSrc: "images/visa.png",
-                link: "visa/visa.html"          // لینک صفحه ویزا
+                title: "ویزای بشردوستانه آلمان",
+                desc: "فرصت ویژه برای افغان‌های آسیب‌پذیر | برنامه پذیرش بشردوستانه آلمان",
+                iconSrc: "visa-pic/germany.png",
+                link: "g.html"
             },
             {
-                title: "رهنمودهای مهاجرتی",
-                desc: "ارائه رهنمودهای گام به گام و تخصصی برای طی کردن مسیر مهاجرت، از انتخاب مقصد تا آماده‌سازی مدارک.",
-                iconSrc: "images/guide.png",
-                link: "guide.html"         // لینک صفحه رهنمودها
+                title: "ویزای بشردوستانه اسپانیا",
+                desc: "فرصت ویژه برای افغان‌های آسیب‌پذیر | حمایت بشردوستانه اسپانیا",
+                iconSrc: "visa-pic/spania.png",
+                link: "s.html"
             },
             {
-                title: "سمینارهای تقویتی",
-                desc: "برگزاری جلسات آموزشی و سمینارهای کاربردی جهت ارتقای دانش شما در زمینه مهاجرت و آماده‌سازی بهتر برای مراحل مختلف این مسیر.",
-                iconSrc: "images/course.png",
-                link: "sem/sem.html"   // لینک صفحه سمینارها
+                title: "ویزای بشردوستانه ایتالیا",
+                desc: "فرصت ویژه برای افغان‌های آسیب‌پذیر | برنامه حفاظت ایتالیا",
+                iconSrc: "visa-pic/italia.png",
+                link: "i.html"
+            },
+            {
+                title: "ویزای بشردوستانه فنلاند",
+                desc: "فرصت ویژه برای افغان‌های آسیب‌پذیر | برنامه پناهندگی فنلاند",
+                iconSrc: "visa-pic/finland.png",
+                link: "f.html"
+            },
+            {
+                title: "ویزای بشردوستانه سوئیس",
+                desc: "فرصت ویژه برای افغان‌های آسیب‌پذیر | برنامه حمایت سوئیس",
+                iconSrc: "visa-pic/swiss.png",
+                link: "w.html"
+            },
+            {
+                title: "ویزای بشردوستانه برزیل",
+                desc: "فرصت ویژه برای افغان‌های آسیب‌پذیر | ویزای بشردوستانه برزیل",
+                iconSrc: "visa-pic/brazil.png",
+                link: "b.html"
+            },
+            {
+                title: "ویزای بشردوستانه نیوزلند",
+                desc: "فرصت ویژه برای افغان‌های آسیب‌پذیر | برنامه حمایت نیوزلند",
+                iconSrc: "visa-pic/newzealand.png",
+                link: "n.html"
             }
         ];
 
-        // تابع برای رندر کردن کارت‌های خدمات
         function renderServices() {
             const grid = document.getElementById('servicesGrid');
             if (!grid) return;
             grid.innerHTML = '';
+
             servicesData.forEach((service) => {
-                // ساخت لینک
+                // لینک اصلی کارت (کل کارت کلیک‌پذیر)
                 const link = document.createElement('a');
                 link.href = service.link;
                 link.className = 'service-link';
 
-                // قسمت آیکون (تصویر)
                 const iconDiv = document.createElement('div');
                 iconDiv.className = 'service-icon';
                 const img = document.createElement('img');
@@ -321,40 +358,29 @@
                 img.alt = service.title;
                 iconDiv.appendChild(img);
 
-                // عنوان و توضیحات
                 const titleElem = document.createElement('h3');
                 titleElem.innerText = service.title;
                 const descElem = document.createElement('p');
                 descElem.innerText = service.desc;
 
-                // اضافه کردن محتوا به لینک
                 link.appendChild(iconDiv);
                 link.appendChild(titleElem);
                 link.appendChild(descElem);
 
-                // اضافه کردن لینک به کارت
+                // ساخت دکمه مجزا برای معلومات و ثبت نام
+                const btn = document.createElement('a');
+                btn.href = service.link;
+                btn.className = 'btn-info';
+                btn.innerHTML = '<i class="fas fa-info-circle"></i> معلومات و ثبت نام';
+
                 const card = document.createElement('div');
                 card.className = 'service-card';
                 card.appendChild(link);
+                card.appendChild(btn);  // دکمه اضافه شد
                 grid.appendChild(card);
             });
         }
 
-        // ========== دکمه برگشت به خانه (تنظیم لینک توسط شما) ==========
-        const homeBtn = document.getElementById('homeButton');
-        // *** لینک دلخواه خود را در این متغیر قرار دهید ***
-        const yourCustomHomeLink = "/";   // <--- اینجا تغییر دهید (مثلاً "https://example.com" یا "index.html")
-
-        homeBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (yourCustomHomeLink && yourCustomHomeLink !== "#") {
-                window.location.href = yourCustomHomeLink;
-            } else {
-                alert("لطفاً لینک برگشت به خانه را در متغیر yourCustomHomeLink تنظیم کنید.");
-            }
-        });
-
-        // رندر اولیه خدمات
         renderServices();
     </script>
 </body>
