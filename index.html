@@ -1,10 +1,10 @@
-here<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>در حال بروزرسانی | Sarfraz Refugee Service</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Sarfraz Refugee Service | خدمات مهاجرت سرفراز</title>
     <style>
         * {
             margin: 0;
@@ -13,334 +13,719 @@ here<!DOCTYPE html>
         }
 
         body {
-            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #0d2b3e 100%);
-            color: #ffffff;
-            direction: rtl;
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffffff 0%, #c4c4c4 100%);
             min-height: 100vh;
+        }
+
+        /* منو */
+        .navbar {
+            background: white;
+            padding: 0.8rem 2rem;
+            box-shadow: none;
+            position: relative;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* لوگو */
+        .logo-area {
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* لوگو از فولدر images */
-        .logo {
-            margin-bottom: 40px;
+            gap: 10px;
         }
 
         .logo-img {
-            width: 90px;
-            height: 90px;
-        
-            margin: 0 auto 20px;
-            display: block;
-        
-        }
-
-        .logo h1 {
-            font-size: 1.6rem;
-            font-weight: 800;
-        }
-
-        .logo p {
-            font-size: 0.8rem;
-            color: #aaa;
-        }
-
-        /* کادر اصلی */
-        .update-box {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 32px;
-            padding: 50px 30px;
-            border: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 30px;
-        }
-
-        /* آیکن اصلی */
-        .icon-wrapper {
-            width: 100px;
-            height: 100px;
-            background: rgba(30,136,229,0.15);
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 30px;
-            border: 2px solid rgba(30,136,229,0.3);
         }
 
-        .icon-wrapper i {
-            font-size: 3.5rem;
-            color: #1e88e5;
-        }
-
-        /* عنوان */
-        .update-box h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .update-box h2 span {
-            color: #1e88e5;
-        }
-
-        /* متن توضیح */
-        .message {
-            color: #ccc;
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
-        }
-
-        /* تایمر شمارش معکوس */
-        .timer-container {
-            background: rgba(0,0,0,0.4);
-            border-radius: 20px;
-            padding: 20px;
-            margin: 25px 0;
-        }
-
-        .timer-title {
-            font-size: 0.85rem;
-            color: #aaa;
-            margin-bottom: 15px;
-        }
-
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .timer-block {
-            background: rgba(30,136,229,0.15);
-            border-radius: 16px;
-            padding: 12px 18px;
-            min-width: 80px;
-            border: 1px solid rgba(30,136,229,0.3);
-        }
-
-        .timer-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #1e88e5;
-            line-height: 1;
-        }
-
-        .timer-label {
-            font-size: 0.7rem;
-            color: #bbb;
-            margin-top: 5px;
-        }
-
-        /* لینک‌های ارتباطی */
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 25px;
-        }
-
-        .contact-links a {
-            color: #ddd;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 25px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 40px;
-            transition: 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .contact-links a:hover {
-            background: #1e88e5;
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        /* دکمه رفرش */
-        .refresh-btn {
-            background: linear-gradient(135deg, #1e88e5, #0a5c8e);
-            border: none;
-            color: white;
+        .logo-text {
             font-size: 1rem;
             font-weight: bold;
-            padding: 14px 35px;
-            border-radius: 40px;
+            color: #00051d;
+        }
+
+        /* منوی اصلی با آیکن */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+        }
+
+        .nav-menu li {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        .nav-menu a img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-menu a:hover img {
+            transform: scale(1.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
             cursor: pointer;
-            transition: 0.3s;
-            display: inline-flex;
+        }
+
+        /* محتوای اصلی */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            min-height: 70vh;
+        }
+
+        /* لوگوی جدید ریسپانسیو در بالای خدمات */
+        .new-logo {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .new-logo img {
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .new-logo img:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            color: #000000;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            border-right: 4px solid #000000;
+            padding-right: 15px;
+        }
+
+        h2 {
+            color: #06000c;
+            margin: 1.5rem 0 0.8rem 0;
+            font-size: 1.4rem;
+            display: flex;
             align-items: center;
             gap: 10px;
-            margin-top: 20px;
-            font-family: inherit;
         }
 
-        .refresh-btn:hover {
+        h2 img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover img {
+            transform: scale(1.1);
+        }
+
+        h3 {
+            color: #0f0f0f;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        p {
+            color: #eeeded;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            margin-top: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(30,136,229,0.3);
         }
 
-        /* فوتر */
-        .footer {
-            margin-top: 30px;
-            font-size: 0.7rem;
+        .card {
+            background: #f8f9ff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-right: 4px solid #0230ff;
+        }
+
+        .info-box {
+            background: #e8ecff;
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+        }
+
+        ul {
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* بخش رویدادها */
+        .events-section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            color: #667eea;
+            font-size: 2rem;
+            border: none;
+            justify-content: center;
+        }
+
+        .section-header p {
             color: #555;
+            font-size: 1rem;
         }
 
-        /* آنیمیشن چشمک زدن */
-        @keyframes pulse {
-            0% { opacity: 0.6; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
-            100% { opacity: 0.6; transform: scale(1); }
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
         }
 
-        .icon-wrapper {
-            animation: pulse 2s infinite;
+        .event-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
         }
 
-        @media (max-width: 550px) {
-            .update-box {
-                padding: 30px 20px;
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .event-card:hover .event-img {
+            transform: scale(1.05);
+        }
+
+        .event-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .event-title {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            height: 50px;
+            overflow: hidden;
+        }
+
+        .event-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s;
+        }
+
+        .event-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* فوتر با آیکن */
+        .footer {
+            background: #1a1a2e;
+            color: #aaa;
+            margin-top: 2rem;
+            padding: 2rem 0 0 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .footer-section h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p {
+            color: #aaa;
+            line-height: 1.8;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section p img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .footer-section p a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section p a:hover {
+            color: #667eea;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #aaa;
+            transition: color 0.3s, transform 0.2s;
+            cursor: pointer;
+        }
+
+        .social-link:hover {
+            color: #667eea;
+            transform: translateX(-5px);
+        }
+
+        .social-link img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            transition: transform 0.2s;
+        }
+
+        .social-link:hover img {
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+        }
+
+        /* آیکن بالای صفحه */
+        .top-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+
+        /* استایل متن معرفی اضافه شده */
+        .intro-text {
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            padding: 1.8rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+            border-right: 4px solid #667eea;
+            text-align: center;
+        }
+
+        .intro-text p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #333;
+            margin-bottom: 0;
+        }
+
+        .intro-text strong {
+            color: #010b35;
+        }
+
+        /* موبایل */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
             }
-            .timer-block {
-                min-width: 60px;
-                padding: 8px 12px;
+
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0.8rem;
+                margin-top: 1rem;
             }
-            .timer-number {
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                padding: 8px 0;
+            }
+
+            .container {
+                margin: 1rem;
+                padding: 1.2rem;
+            }
+
+            h1 {
                 font-size: 1.5rem;
             }
-            .contact-links a {
-                padding: 8px 18px;
-                font-size: 0.8rem;
+
+            h2 {
+                font-size: 1.2rem;
             }
-            .logo-img {
-                width: 70px;
-                height: 70px;
+
+            h2 img {
+                width: 28px;
+                height: 28px;
+            }
+
+            .top-icon {
+                width: 55px;
+                height: 55px;
+            }
+
+            /* لوگوی جدید در موبایل */
+            .new-logo img {
+                max-width: 120px;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .event-title {
+                height: auto;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-section p {
+                justify-content: center;
+            }
+
+            .social-links {
+                align-items: center;
+            }
+
+            .social-link:hover {
+                transform: translateX(0);
+            }
+
+            .intro-text {
+                padding: 1rem;
+            }
+
+            .intro-text p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* تبلت (iPad) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .new-logo img {
+                max-width: 150px;
+            }
+        }
+
+        /* کامپیوتر */
+        @media (min-width: 1025px) {
+            .new-logo img {
+                max-width: 180px;
             }
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <!-- لوگو (از فولدر images) -->
-    <div class="logo">
-        <img src="images/logo.png" alt="لوگو" class="logo-img" onerror="this.src='https://via.placeholder.com/90?text=🇺🇸'">
-        <h1>Sarfraz Refugee Service</h1>
-        <p>خدمات مهاجرت و ویزای بشردوستانه</p>
+    <!-- منو -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-area">
+                <img src="images/khamoosh.webp" alt="لوگو" class="logo-img">
+                <div class="logo-text">SARFAZ REFUGEE SERVICE</div>
+            </div>
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-menu">
+                <li>
+                    <a href="index.html">
+                        <img src="images/home.png" alt="خانه">
+                        خانه
+                    </a>
+                </li>
+                <li>
+                    <a href="services.html">
+                        <img src="images/customer.png" alt="خدمات">
+                        خدمات
+                    </a>
+                </li>
+                <li>
+                    <a href="ai.html">
+                        <img src="images/ai.png" alt="AI">
+                        AI
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <img src="images/call.png" alt="تماس با ما">
+                        فورم تماس
+                    </a>
+                </li>
+                <li>
+                    <a href="faq.html">
+                        <img src="images/f&a.png" alt="سوالات متداول">
+                        سوالات متداول
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- محتوا -->
+    <div class="container">
+        <!-- لوگوی جدید اضافه شده در بالای خدمات (قبل از آیکن قبلی) -->
+        <div class="new-logo">
+            <img src="images/logo.png" alt="Sarfraz Refugee Service">
+        </div>
+
+        <div style="text-align:center; margin-bottom:2rem">
+            <h1>خدمات مهاجرت</h1>
+
+            <!-- متن دوم تأیید شده - اضافه شده -->
+            <div class="intro-text">
+                <p>
+                    <strong>Sarfraz Refugee Service</strong> به عنوان بزرگترین مرجع مشاوره مهاجرت،
+                    با افتخار خدمات خود را به <strong>افغان‌ها و ایرانیان</strong> ارائه می‌دهد. ما
+                    متخصص در <strong>ثبت‌نام ویزای بشردوستانه</strong>، <strong>برنامه‌های
+                        اسپانسر</strong>، <strong>مشاوره تخصصی مهاجرت</strong> و
+                    <strong>پشتیبانی کامل در تمام مراحل مهاجرت</strong> هستیم. همراه شما تا امنیت و
+                    آرامش.
+                </p>
+            </div>
+
+        </div>
     </div>
 
-    <!-- کادر اصلی -->
-    <div class="update-box">
-        <div class="icon-wrapper">
-            <i class="fas fa-tools"></i>
+    <!-- بخش رویدادها -->
+    <div class="events-section">
+        <div class="section-header">
+            <h2>آخرین رویدادها</h2>
+            <p>جدیدترین اخبار مهاجرت و پناهندگی</p>
         </div>
-        
-        <h2>⚠️ <span>در حال بروزرسانی</span> ⚠️</h2>
-        
-        <div class="message">
-            سایت <strong>Sarfraz Refugee Service</strong> جهت بهبود کیفیت خدمات و اضافه کردن امکانات جدید، برای <strong>۵ ساعت</strong> در دسترس نیست.
-            <br><br>
-            لطفاً بعد از اتمام تایمر دوباره تلاش کنید. از صبر و شکیبایی شما سپاسگزاریم.
-        </div>
+        <div class="events-grid">
 
-        <!-- تایمر شمارش معکوس -->
-        <div class="timer-container">
-            <div class="timer-title">
-                <i class="fas fa-clock"></i> زمان تقریبی تا پایان بروزرسانی:
-            </div>
-            <div class="timer" id="timer">
-                <div class="timer-block">
-                    <div class="timer-number" id="hours">05</div>
-                    <div class="timer-label">ساعت</div>
-                </div>
-                <div class="timer-block">
-                    <div class="timer-number" id="minutes">00</div>
-                    <div class="timer-label">دقیقه</div>
-                </div>
-                <div class="timer-block">
-                    <div class="timer-number" id="seconds">00</div>
-                    <div class="timer-label">ثانیه</div>
+            <!-- رویداد 1 -->
+            <div class="event-card">
+                <img src="news/pic/qater.jpg" alt="افغان‌ها در قطر" class="event-img">
+                <div class="event-content">
+                    <h3 class="event-title">افغان‌های گیرمانده در قطر از اقدام ترامپ برای فرستادن به
+                        کنگو ابراز خیانت
+                        کردند</h3>
+                    <a href="news/1.html" class="event-btn">بیشتر بدانید ←</a>
                 </div>
             </div>
-        </div>
 
-        <!-- دکمه رفرش -->
-        <button class="refresh-btn" onclick="window.location.reload();">
-            <i class="fas fa-sync-alt"></i>
-            بررسی مجدد
-        </button>
+            <!-- رویداد 2 -->
+            <div class="event-card">
+                <img src="news/pic/talib.webp" alt="طالبان" class="event-img">
+                <div class="event-content">
+                    <h3 class="event-title">طالبان از افغان‌هایی که به آمریکا کمک کردند خواست به
+                        کشور بازگردند</h3>
+                    <a href="news/2.html" class="event-btn ">بیشتر بدانید ←</a>
+                </div>
+            </div>
 
-        <!-- لینک‌های ارتباطی -->
-        <div class="contact-links">
-            <a href="mailto:info@sarfrazrefugee.com">
-                <i class="fas fa-envelope"></i> ایمیل
-            </a>
-            <a href="tel:+1234567890">
-                <i class="fas fa-phone-alt"></i> تماس فوری
-            </a>
+            <!-- رویداد 3 -->
+            <div class="event-card">
+                <img src="news/pic/afghan.jpg" alt="پناهجویان افغان" class="event-img">
+                <div class="event-content">
+                    <h3 class="event-title">سرنوشت نامعلوم پناهجویان افغان؛ میان وعده‌های ناتمام و
+                        بازگشت پـر خطر</h3>
+                    <a href="news/3.html" class="event-btn">بیشتر بدانید ←</a>
+                </div>
+            </div>
+
+
+            <!-- رویداد 4 -->
+            <div class="event-card">
+                <img src="news/pic/homeland.jpg" alt="پناهجوی افغان" class="event-img">
+                <div class="event-content">
+                    <h3 class="event-title">پناهجوی فراری از طالبان در خطر اخراج به افغانستان؛ هشدار
+                        وکیل</h3>
+                    <a href="news/4.html" class="event-btn">بیشتر بدانید ←</a>
+                </div>
+            </div>
+
+            <!-- رویداد 5 -->
+            <div class="event-card">
+                <img src="news/pic/student.jpg" alt="دانش‌آموزان پناهجو" class="event-img">
+                <div class="event-content">
+                    <h3 class="event-title">حمایت از دانش‌آموزان پناهجو در فضای سیاسی نامطمئن؛ نقش
+                        حیاتی مکاتب و آموزگاران</h3>
+                    <a href="news/5.html" class="event-btn">بیشتر بدانید ←</a>
+                </div>
+            </div>
+
         </div>
     </div>
 
     <!-- فوتر -->
     <div class="footer">
-        <p>Sarfraz Refugee Service | مهاجرت به آمریکا | ویزای بشردوستانه</p>
-    </div>
-</div>
+        <div class="footer-container">
 
-<script>
-    // ========== تایمر شمارش معکوس (5 ساعت) ==========
-    function startCountdown(hours, minutes, seconds) {
-        let totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
-        
-        const hoursEl = document.getElementById('hours');
-        const minutesEl = document.getElementById('minutes');
-        const secondsEl = document.getElementById('seconds');
-        
-        function updateTimer() {
-            if (totalSeconds <= 0) {
-                // تایمر تمام شد، صفحه را رفرش کن
-                window.location.reload();
-                return;
-            }
-            
-            const hrs = Math.floor(totalSeconds / 3600);
-            const mins = Math.floor((totalSeconds % 3600) / 60);
-            const secs = totalSeconds % 60;
-            
-            hoursEl.textContent = String(hrs).padStart(2, '0');
-            minutesEl.textContent = String(mins).padStart(2, '0');
-            secondsEl.textContent = String(secs).padStart(2, '0');
-            
-            totalSeconds--;
+            <div class="footer-section">
+                <h4>خدمات مهاجرت</h4>
+                <p>معتبرترین خدمات مهاجرت در افغانستان
+                    <br> ارایه خدمات مهاجرتی در سراسر جهان
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>تماس با ما</h4>
+                <p>
+                    <img src="images/location.png" alt="آدرس">
+                    آدرس شهر ایبک سمنگان
+                </p>
+                <p>
+                    <img src="images/online.png" alt="آدرس">
+                    خدمات آنلاین در سرار افغانستان و جهان
+                </p>
+                <p>
+                    <img src="images/gmail.png" alt="ایمیل پشتبانی">
+                    sarfraz2026@zohomail.com ایمیل پشتبانی
+                </p>
+                <p>
+                    <img src="images/phon.png" alt="تلفن">
+                    0792665622 شماره تماس
+                </p>
+
+            </div>
+
+            <div class="footer-section">
+                <h4>شبکه‌های اجتماعی</h4>
+                <div class="social-links">
+                    <a class="social-link"
+                        onclick="window.open('https://whatsapp.com/channel/0029Vae7U29AzNbpZIv5T81R')">
+                        <img src="images/whatsapp.png" alt="کانال واتساپ">
+                        واتساپ
+                    </a>
+                    <a class="social-link" onclick="window.open('https://t.me/visaguidee')">
+                        <img src="images/telegram.png" alt="تلگرام">
+                        تلگرام
+                    </a>
+                    <a class="social-link"
+                        onclick="window.open('https://www.facebook.com/profile.php?id=61576472791614')">
+                        <img src="images/facebook.png" alt="فیسبوک">
+                        فیسبوک
+                    </a>
+                    <a class="social-link"
+                        onclick="location.href='https://www.instagram.com/sarfraz_refugee_service?igsh=MXRvMG55cjRieGhucg=='">
+                        <img src="images/instagram.png" alt="انستاگرام ">
+                        انستاگرام
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 خدمات مهاجرت - همه حقوق محفوظ است</p>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
         }
-        
-        updateTimer();
-        setInterval(updateTimer, 1000);
-    }
-    
-    // شروع تایمر با 5 ساعت
-    startCountdown(5, 0, 0);
-    
-    // تنظیم رفرش خودکار بعد از 5 ساعت (18000 ثانیه)
-    setTimeout(() => {
-        window.location.reload();
-    }, 18000000);
-</script>
+    </script>
 
 </body>
+
 </html>
